@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `SamHaakman.com`,
+    description: `I build really fast websites that look good`,
+    author: `Sam Haakman`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -18,17 +18,31 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `samhaakman.com`,
+        short_name: `sam`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#4F304C`,
+        theme_color: `#4F304C`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+   resolve: 'gatsby-source-prismic-graphql',
+     options: {
+       repositoryName: 'samhaakman', // (REQUIRED, replace with your own)
+       accessToken: 'MC5YakFsNXhVQUFDY0FDZlpX.77-9R--_vRnvv70y77-977-9Lu-_ve-_vW7vv719dhDvv700Te-_ve-_vQxr77-977-977-9IO-_vRhfKjA', // (optional API access token)
+       path: '/preview', // (optional preview path. Default: /preview)
+       previews: true, // (optional, activated Previews. Default: false)
+       pages: [{ // (optional, builds pages dynamically)
+         type: 'Portfolio',         // TypeName from prismic
+         match: '/portfolio/:uid',  // Pages will be generated under this pattern
+         path: '/portfolio',        // Placeholder page for unpublished documents
+         component: require.resolve('./src/templates/case-study.js'),
+       }],
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    `gatsby-plugin-offline`,
   ],
 }
