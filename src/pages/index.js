@@ -1,5 +1,6 @@
 import React from "react"
-import { Link } from "gatsby"
+import { graphql, Link } from "gatsby"
+import { RichText } from "prismic-reactjs"
 
 import Layout from "../components/layout"
 import Image from "../components/image"
@@ -7,17 +8,34 @@ import SEO from "../components/seo"
 
 import "../styles/styles.scss"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+const IndexPage = ({ data }) => {
+  const doc = data.prismic.allHomepages.edges.slice(0, 1).pop()
+  console.log(doc)
+  return (
+    <Layout>
+      <SEO title="Home" />
+      <h1>
+        {(doc && RichText.render(doc.node.title)) ||
+          "I'm Sam! Welcome to my website"}
+      </h1>
+      {doc && RichText.render(doc.node.body)}
+    </Layout>
+  )
+}
 
 export default IndexPage
+
+export const query = graphql`
+  {
+    prismic {
+      allHomepages {
+        edges {
+          node {
+            title
+            body
+          }
+        }
+      }
+    }
+  }
+`

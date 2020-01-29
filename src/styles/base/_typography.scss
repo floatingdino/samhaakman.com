@@ -15,6 +15,7 @@ html {
   @each $bp, $size in s.$font_size {
     @include foundation.breakpoint($bp) {
       font-size: $size;
+      line-height: map-get(s.$line_height, $bp);
     }
   }
 }
@@ -24,6 +25,12 @@ h2 {
   font-weight: 700;
   font-style: normal;
   text-decoration: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  @include foundation.breakpoint(large) {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
 }
 
 h1 {
@@ -63,4 +70,9 @@ a {
   &:visited {
     color: inherit;
   }
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 35px;
 }

@@ -7,15 +7,22 @@ import "./header.scss"
 const Header = ({ siteTitle }) => (
   <header>
     <div className="grid-container">
-      <div class="grid-x align-justify align-middle">
-        <div class="cell auto">
-          <div class="header-logo">
+      <div className="grid-x align-justify align-middle">
+        <div className="cell auto">
+          <div className="header-logo">
             <Link to="/">{siteTitle}</Link>
           </div>
         </div>
-        <div class="cell shrink">
-          <div class="show-for-large">Main Nav goes here</div>
-          <div class="hide-for-large">MENU</div>
+        <div className="cell shrink">
+          <nav className="show-for-large">
+            <ul className="header-nav">
+              <li>
+                <Link to="/portfolio">Portfolio</Link>
+              </li>
+              <li>About</li>
+            </ul>
+          </nav>
+          <div className="hide-for-large">MENU</div>
         </div>
       </div>
     </div>

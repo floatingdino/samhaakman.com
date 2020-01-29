@@ -7,3 +7,21 @@
 *::after {
   box-sizing: border-box;
 }
+
+$spacing_rhythm: (
+  small: 10px,
+  large: 20px,
+);
+
+@for $i from 0 through 5 {
+  @each $bp, $r in $spacing_rhythm {
+    @include foundation.breakpoint($bp) {
+      .mt-#{$i} {
+        margin-top: $r * $i;
+      }
+      .mb-#{$i} {
+        margin-bottom: $r * $i;
+      }
+    }
+  }
+}

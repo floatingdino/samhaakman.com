@@ -21,5 +21,15 @@ $font_size: (
   small: 14px,
   large: 24px
 );
+$line_height: (
+  small: (
+    20 / 14
+  ),
+  large: (
+    40 / 24
+  )
+);
 
 $shadow: 0 4px 25px rgba(black, 0.15);
+
+$separator: "•";

@@ -1,3 +1,4 @@
+@use "settings" as s;
 @use "foundation";
 
 header {
@@ -16,5 +17,23 @@ header {
   @include foundation.breakpoint(large) {
     font-size: (48 / 24) * 1rem;
     line-height: (70 / 48);
+  }
+}
+
+.header-nav {
+  display: flex;
+  list-style: none;
+  @include foundation.breakpoint(large) {
+    margin-right: -10px;
+    li {
+      margin-right: 10px;
+      &:nth-of-type(n + 2) {
+        &::before {
+          content: s.$separator;
+          display: inline-block;
+          margin-right: 10px;
+        }
+      }
+    }
   }
 }
