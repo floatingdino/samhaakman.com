@@ -31,7 +31,7 @@ const Layout = ({ children, className }) => {
       <main>
         <div className="grid-container">{children}</div>
       </main>
-      <footer>
+      <footer className="mt-2 mb-2">
         <div className="grid-container">
           © {new Date().getFullYear()}, Built with
           {` `}

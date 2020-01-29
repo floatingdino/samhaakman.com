@@ -15,8 +15,12 @@ const Page = ({ data }) => {
   return (
     <Layout className="page">
       <SEO title={RichText.asText(doc.node.page_title)} />
-      <h1>{doc && RichText.asText(doc.node.page_title)}</h1>
-      {doc && RichText.render(doc.node.body)}
+      <div class="grid-x grid-margin-x align-center">
+        <div class="cell large-6">
+          <h1>{doc && RichText.asText(doc.node.page_title)}</h1>
+          {doc && RichText.render(doc.node.body)}
+        </div>
+      </div>
     </Layout>
   )
 }

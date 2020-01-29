@@ -3,5 +3,7 @@
 @forward "~foundation-sites/scss/foundation" with (
   $breakpoint-classes: (small large),
   $grid-margin-gutters: s.$gutter,
-  $global-width: s.$container
+  $grid-container-padding: s.$outer_padding,
+  $global-width: s.$container + map-get(s.$outer_padding, large),
+  $global-font-size: map-get(s.$font_size, large)
 );
