@@ -1,0 +1,14 @@
+@use "foundation";
+
+@include foundation.foundation-flex-classes;
+
+@include foundation.foundation-xy-grid-classes(
+  true,
+  true,
+  false,
+  false,
+  false,
+  false,
+  false,
+  false
+);

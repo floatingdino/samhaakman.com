@@ -1,6 +1,10 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
-    title: `SamHaakman.com`,
+    title: `Sam Haakman`,
     description: `I build really fast websites that look good`,
     author: `Sam Haakman`,
   },
@@ -28,19 +32,38 @@ module.exports = {
       },
     },
     {
-   resolve: 'gatsby-source-prismic-graphql',
-     options: {
-       repositoryName: 'samhaakman', // (REQUIRED, replace with your own)
-       accessToken: 'MC5YakFsNXhVQUFDY0FDZlpX.77-9R--_vRnvv70y77-977-9Lu-_ve-_vW7vv719dhDvv700Te-_ve-_vQxr77-977-977-9IO-_vRhfKjA', // (optional API access token)
-       path: '/preview', // (optional preview path. Default: /preview)
-       previews: true, // (optional, activated Previews. Default: false)
-       pages: [{ // (optional, builds pages dynamically)
-         type: 'Portfolio',         // TypeName from prismic
-         match: '/portfolio/:uid',  // Pages will be generated under this pattern
-         path: '/portfolio',        // Placeholder page for unpublished documents
-         component: require.resolve('./src/templates/case-study.js'),
-       }],
-
+      resolve: "gatsby-plugin-sass",
+      options: {
+        implementation: require("sass"),
+        includePaths: [`${__dirname}/src/styles`],
+      },
+    },
+    {
+      resolve: "gatsby-source-prismic-graphql",
+      options: {
+        repositoryName: "samhaakman", // (REQUIRED, replace with your own)
+        accessToken: process.env.PRISMIC_TOKEN, // (optional API access token)
+        path: "/preview", // (optional preview path. Default: /preview)
+        previews: true, // (optional, activated Previews. Default: false)
+        pages: [
+          {
+            // (optional, builds pages dynamically)
+            type: "Portfo", // TypeName from prismic
+            match: "/portfolio/:uid", // Pages will be generated under this pattern
+            path: "/portfolio", // Placeholder page for unpublished documents
+            component: require.resolve("./src/templates/case-study.js"),
+          },
+        ],
+      },
+    },
+    {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        google: {
+          families: ["Archivo:400,700"],
+        },
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,

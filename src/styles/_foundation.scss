@@ -1,0 +1,7 @@
+@use "settings" as s;
+
+@forward "~foundation-sites/scss/foundation" with (
+  $breakpoint-classes: (small large),
+  $grid-margin-gutters: s.$gutter,
+  $global-width: s.$container
+);

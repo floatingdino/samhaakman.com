@@ -1,0 +1,9 @@
+@use "foundation";
+
+@include foundation.foundation-visibility-classes;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}

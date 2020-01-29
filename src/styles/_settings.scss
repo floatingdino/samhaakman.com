@@ -1,0 +1,25 @@
+@use "sass:color";
+
+$eggplant: #4f304c;
+$bonjour: lighten($eggplant, 67%);
+
+$primary: $eggplant;
+$light: $bonjour;
+
+$container: 1220px;
+$gutter: (
+  small: 20px,
+  large: 40px
+);
+$outer_padding: (
+  small: 20px,
+  large: 80px
+);
+
+$font_family: Archivo, sans-serif;
+$font_size: (
+  small: 14px,
+  large: 24px
+);
+
+$shadow: 0 4px 25px rgba(black, 0.15);

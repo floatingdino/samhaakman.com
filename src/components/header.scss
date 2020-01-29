@@ -1,0 +1,20 @@
+@use "foundation";
+
+header {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  @include foundation.breakpoint(large) {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+}
+
+.header-logo {
+  font-size: (24 / 14) * 1rem;
+  line-height: (30 / 24);
+  font-weight: bold;
+  @include foundation.breakpoint(large) {
+    font-size: (48 / 24) * 1rem;
+    line-height: (70 / 48);
+  }
+}
