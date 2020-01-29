@@ -5,7 +5,7 @@ import React from "react"
 import "./header.scss"
 
 const Header = ({ siteTitle }) => (
-  <header>
+  <header className="mb-2">
     <div className="grid-container">
       <div className="grid-x align-justify align-middle">
         <div className="cell auto">

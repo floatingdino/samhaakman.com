@@ -1,0 +1,13 @@
+@use "settings" as s;
+
+.layout-wrapper {
+  min-height: 100vh;
+  &.page {
+    @if lightness(s.$primary) > 50 {
+      background-color: black;
+    } @else {
+      background-color: white;
+    }
+    color: s.$primary;
+  }
+}

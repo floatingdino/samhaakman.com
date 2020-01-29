@@ -10,12 +10,11 @@ import "../styles/styles.scss"
 
 const IndexPage = ({ data }) => {
   const doc = data.prismic.allHomepages.edges.slice(0, 1).pop()
-  console.log(doc)
   return (
     <Layout>
       <SEO title="Home" />
       <h1>
-        {(doc && RichText.render(doc.node.title)) ||
+        {(doc && RichText.asText(doc.node.title)) ||
           "I'm Sam! Welcome to my website"}
       </h1>
       {doc && RichText.render(doc.node.body)}

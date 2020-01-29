@@ -2,7 +2,7 @@
 @use "foundation";
 
 .card {
-  @if lightness(s.$primary) > 50 {
+  @if lightness(s.$primary) < 50 {
     background-color: white;
   } @else {
     background-color: black;
@@ -10,6 +10,7 @@
   color: s.$primary;
   padding: 20px;
   box-shadow: s.$shadow;
+  border-radius: 5px;
   @include foundation.breakpoint(large) {
     padding: 40px;
   }

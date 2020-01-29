@@ -50,8 +50,14 @@ module.exports = {
             // (optional, builds pages dynamically)
             type: "Portfo", // TypeName from prismic
             match: "/portfolio/:uid", // Pages will be generated under this pattern
-            path: "/portfolio", // Placeholder page for unpublished documents
+            path: "/portfolio/case-study", // Placeholder page for unpublished documents
             component: require.resolve("./src/templates/case-study.js"),
+          },
+          {
+            type: "Page",
+            match: "/:uid",
+            path: "/page",
+            component: require.resolve("./src/templates/page.js"),
           },
         ],
       },
