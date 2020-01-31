@@ -11,7 +11,6 @@ import ContentBlock from "../components/contentBlock"
 import "../styles/styles.scss"
 
 const Slice = ({ type, ...props }) => {
-  console.log(props)
   switch (type) {
     case "big_image":
       return (
@@ -28,6 +27,8 @@ const Slice = ({ type, ...props }) => {
           body={props.primary.body}
         />
       )
+    default:
+      return <>{`<!-- No slice for ${type} -->`}</>
   }
 }
 

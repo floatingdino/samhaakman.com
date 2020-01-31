@@ -21,7 +21,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sharp`,
       options: {
-        defaultQuality: 90,
+        defaultQuality: 100,
       },
     },
     {
@@ -33,7 +33,7 @@ module.exports = {
         background_color: `#4F304C`,
         theme_color: `#4F304C`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/eggplant.png`, // This path is relative to the root of the site.
       },
     },
     {
