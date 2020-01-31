@@ -43,8 +43,8 @@ module.exports = {
       options: {
         repositoryName: "samhaakman", // (REQUIRED, replace with your own)
         accessToken: process.env.PRISMIC_TOKEN, // (optional API access token)
-        path: "/preview", // (optional preview path. Default: /preview)
-        previews: true, // (optional, activated Previews. Default: false)
+        previews: false,
+        omitPrismicScript: true,
         pages: [
           {
             // (optional, builds pages dynamically)
