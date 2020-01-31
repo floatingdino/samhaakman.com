@@ -31,7 +31,7 @@ const Layout = ({ children, className }) => {
       <main>
         <div className="grid-container">{children}</div>
       </main>
-      <footer className="mt-2 mb-2">
+      <footer className="mt-2 pb-2">
         <div className="grid-container">
           <div>
             <a href="mailto:sam@samhaakman.com">sam@samhaakman.com</a>

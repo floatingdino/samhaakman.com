@@ -26,6 +26,9 @@ $spacing_rhythm: (
       .mb-#{$i} {
         margin-bottom: $r * $i;
       }
+      .pb-#{$i} {
+        padding-bottom: $r * $i;
+      }
     }
   }
 }

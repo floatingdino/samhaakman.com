@@ -5,14 +5,38 @@ import { RichText, Date, Link } from "prismic-reactjs"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
+import BigImage from "../components/bigImage"
+import ContentBlock from "../components/contentBlock"
+
 import "../styles/styles.scss"
+
+const Slice = ({ type, ...props }) => {
+  console.log(props)
+  switch (type) {
+    case "big_image":
+      return (
+        <BigImage
+          image={props.primary.imageSharp}
+          alt={props.primary.image.alt}
+        />
+      )
+    case "content_block":
+      return (
+        <ContentBlock
+          image={props.primary.imageSharp}
+          alt={props.primary.image.alt}
+          body={props.primary.body}
+        />
+      )
+  }
+}
 
 const Page = ({ data }) => {
   const doc = data.prismic.allPortfos.edges.slice(0, 1).pop()
   if (!doc) {
     return null
   }
-  console.log(doc.node.site_link)
+  console.log(doc.node.body1)
   return (
     <Layout className="page">
       <SEO title={RichText.asText(doc.node.title)} />
@@ -20,7 +44,7 @@ const Page = ({ data }) => {
         <div className="cell large-4">
           <h1 className="mt-0">{RichText.asText(doc.node.title)} </h1>
           {doc.node.teaser && <RichText render={doc.node.teaser} />}
-          <div class="meta">
+          <div className="meta">
             {RichText.asText(doc.node.studio)} <span className="separator" />{" "}
             <time>
               {Intl.DateTimeFormat("en-GB", {
@@ -44,6 +68,9 @@ const Page = ({ data }) => {
           </a>
         </div>
       </div>
+      <div>
+        {doc.node.body1 && doc.node.body1.map(slice => <Slice {...slice} />)}
+      </div>
     </Layout>
   )
 }
@@ -66,6 +93,36 @@ export const query = graphql`
             }
             excerpt
             project_date
+            body1 {
+              __typename
+              ... on PRISMIC_PortfoBody1Big_image {
+                type
+                primary {
+                  image
+                  imageSharp {
+                    childImageSharp {
+                      fixed(width: 1220) {
+                        ...GatsbyImageSharpFixed_withWebp
+                      }
+                    }
+                  }
+                }
+              }
+              ... on PRISMIC_PortfoBody1Content_block {
+                type
+                primary {
+                  body
+                  image
+                  imageSharp {
+                    childImageSharp {
+                      fixed(width: 560) {
+                        ...GatsbyImageSharpFixed_withWebp
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
