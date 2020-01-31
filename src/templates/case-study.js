@@ -18,10 +18,8 @@ const Page = ({ data }) => {
       <SEO title={RichText.asText(doc.node.title)} />
       <div className="grid-x grid-margin-x align-justify">
         <div className="cell large-4">
-          <RichText render={doc.node.title} Component="h1" className="mt-0" />
-          {doc.node.teaser && (
-            <RichText render={doc.node.teaser} Component="h2" />
-          )}
+          <h1 className="mt-0">{RichText.asText(doc.node.title)} </h1>
+          {doc.node.teaser && <RichText render={doc.node.teaser} />}
           <div class="meta">
             {RichText.asText(doc.node.studio)} <span className="separator" />{" "}
             <time>

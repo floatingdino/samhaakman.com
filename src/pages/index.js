@@ -29,11 +29,9 @@ const IndexPage = ({ data }) => {
               <div className="grid-x align-justify">
                 <div className="cell large-4 small-8 grid-y">
                   <div className="cell auto grid-y align-center">
-                    <RichText
-                      render={node.teaser || node.title}
-                      Component="h2"
-                      className="h1 mb-1"
-                    />
+                    <h2 className="h1 mb-1">
+                      {RichText.asText(node.teaser || node.title)}
+                    </h2>
                     <Link to={linkResolver(node._meta)} className="arrow-link">
                       {(node.teaser && RichText.asText(node.title)) ||
                         "Read More"}
