@@ -43,8 +43,9 @@ module.exports = {
       options: {
         repositoryName: "samhaakman", // (REQUIRED, replace with your own)
         accessToken: process.env.PRISMIC_TOKEN, // (optional API access token)
-        previews: false,
-        omitPrismicScript: true,
+        path: "/preview",
+        previews: process.env.NOW_GITHUB_COMMIT_REF === "staging",
+        omitPrismicScript: process.env.NOW_GITHUB_COMMIT_REF !== "staging",
         pages: [
           {
             // (optional, builds pages dynamically)

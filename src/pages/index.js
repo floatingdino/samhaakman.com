@@ -29,9 +29,11 @@ const IndexPage = ({ data }) => {
               <div className="grid-x align-justify">
                 <div className="cell large-4 small-8 grid-y">
                   <div className="cell auto grid-y align-center">
-                    <h2 className="h1 mb-1">
-                      {RichText.asText(node.teaser || node.title)}
-                    </h2>
+                    <RichText
+                      render={node.teaser || node.title}
+                      Component="h2"
+                      className="h1 mb-1"
+                    />
                     <Link to={linkResolver(node._meta)} className="arrow-link">
                       {(node.teaser && RichText.asText(node.title)) ||
                         "Read More"}
@@ -81,6 +83,7 @@ export const query = graphql`
         edges {
           node {
             title
+            teaser
             studio
             project_date
             preview_image

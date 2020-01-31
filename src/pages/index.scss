@@ -8,7 +8,9 @@
   }
 }
 
-.article-wrapper {
-  margin-left: -40px;
-  margin-right: -40px;
+@include foundation.breakpoint(large) {
+  .article-wrapper {
+    margin-left: -40px;
+    margin-right: -40px;
+  }
 }

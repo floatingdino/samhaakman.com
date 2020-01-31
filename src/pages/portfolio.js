@@ -30,9 +30,11 @@ const PortfolioPage = ({ data }) => {
               key={node._meta.uid}
             >
               <div className="cell auto">
-                <h2 className="h1 mb-1 mt-0">
-                  {RichText.asText(node.teaser || node.title)}
-                </h2>
+                <RichText
+                  render={node.teaser || node.title}
+                  Component="h2"
+                  className="h1 mb-1 mt-0"
+                />
               </div>
               <div className="cell shrink">
                 <Link to={linkResolver(node._meta)} className="arrow-link">
