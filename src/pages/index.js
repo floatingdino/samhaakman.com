@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
+import Img from "gatsby-image"
 import { RichText, Date } from "prismic-reactjs"
 
 import Layout from "../components/layout"
@@ -47,11 +48,12 @@ const IndexPage = ({ data }) => {
                     </time>
                   </div>
                 </div>
-                <div className="cell large-6">
-                  <img
-                    src={node.featured_image.url}
-                    alt={node.featured_image.alt}
+                <div className="cell large-shrink">
+                  <Img
+                    fixed={node.preview_imageSharp.childImageSharp.fixed}
+                    alt={node.preview_image.alt}
                     className="large-card-image"
+                    style={{ display: "block" }}
                   />
                 </div>
               </div>
@@ -81,7 +83,14 @@ export const query = graphql`
             title
             studio
             project_date
-            featured_image
+            preview_image
+            preview_imageSharp {
+              childImageSharp {
+                fixed(height: 560) {
+                  ...GatsbyImageSharpFixed_withWebp
+                }
+              }
+            }
             _meta {
               uid
               type

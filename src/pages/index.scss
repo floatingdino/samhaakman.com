@@ -1,7 +1,6 @@
 @use "foundation";
 
 .large-card-image {
-  display: block;
   max-width: 100%;
   @include foundation.breakpoint(large) {
     margin: -40px -40px -40px 0;
