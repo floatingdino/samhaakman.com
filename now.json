@@ -1,7 +1,7 @@
 {
   "build": {
     "env": {
-      "PRISMIC_TOKEN": "@PRISMIC_TOKEN"
+      "PRISMIC_TOKEN": "@prismic_token"
     }
   }
 }
