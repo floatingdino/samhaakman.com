@@ -33,11 +33,21 @@ const Layout = ({ children, className }) => {
       </main>
       <footer className="mt-2 pb-2">
         <div className="grid-container">
-          <div>
-            <a href="mailto:sam@samhaakman.com">sam@samhaakman.com</a>
-          </div>
-          <div>
-            <Link to="/privacy">Privacy Policy</Link>
+          <div className="grid-x grid-margin-x">
+            <div className="cell auto">
+              <a
+                href="https://github.com/floatingdino"
+                target="_blank"
+                rel="noopener"
+              >
+                Github
+              </a>{" "}
+              <span class="separator" />{" "}
+              <a href="mailto:sam@samhaakman.com">Contact me</a>
+            </div>
+            <div class="cell shrink">
+              <Link to="/privacy">Privacy Policy</Link>
+            </div>
           </div>
         </div>
       </footer>
