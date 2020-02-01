@@ -24,7 +24,7 @@ const Header = ({ siteTitle }) => {
                 aria-haspopup="true"
                 aria-expanded={open ? "true" : "false"}
               >
-                <span class="show-for-sr">Open Mobile Menu</span>
+                <span className="show-for-sr">Open Mobile Menu</span>
               </button>
             </div>
             <nav
