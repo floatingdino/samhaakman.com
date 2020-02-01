@@ -12,7 +12,6 @@ import Pullquote from "../components/pullquote"
 import "../styles/styles.scss"
 
 const Slice = ({ type, ...props }) => {
-  console.log(type, props)
   switch (type) {
     case "big_image":
       return (

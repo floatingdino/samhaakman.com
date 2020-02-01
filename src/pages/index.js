@@ -17,7 +17,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Home" />
-      <h1>
+      <h1 className="mt-0">
         {(doc && RichText.asText(doc.node.title)) ||
           "I'm Sam! Welcome to my website"}
       </h1>

@@ -42,10 +42,10 @@ const Layout = ({ children, className }) => {
               >
                 Github
               </a>{" "}
-              <span class="separator" />{" "}
-              <a href="mailto:sam@samhaakman.com">Contact me</a>
+              <span className="separator" />{" "}
+              <a href="mailto:sam@samhaakman.com">Email</a>
             </div>
-            <div class="cell shrink">
+            <div className="cell shrink">
               <Link to="/privacy">Privacy Policy</Link>
             </div>
           </div>
