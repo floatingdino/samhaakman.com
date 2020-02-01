@@ -8,6 +8,10 @@
   box-sizing: border-box;
 }
 
+img {
+  max-width: 100%;
+}
+
 $spacing_rhythm: (
   small: 10px,
   large: 20px,

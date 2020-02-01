@@ -12,12 +12,14 @@ import Pullquote from "../components/pullquote"
 import "../styles/styles.scss"
 
 const Slice = ({ type, ...props }) => {
+  console.log(type, props)
   switch (type) {
     case "big_image":
       return (
         <BigImage
           image={props.primary.imageSharp}
           alt={props.primary.image.alt}
+          original_image={props.primary.image}
         />
       )
     case "content_block":
@@ -25,13 +27,15 @@ const Slice = ({ type, ...props }) => {
         <ContentBlock
           image={props.primary.imageSharp}
           alt={props.primary.image.alt}
+          originalImage={props.primary.image}
           body={props.primary.body}
+          alternateLayout={props.alternateLayout}
         />
       )
     case "pullquote":
       return <Pullquote pullquote={props.primary.pullquote} />
     default:
-      return `${type}`
+      return null
   }
 }
 
@@ -73,7 +77,11 @@ const Page = ({ data }) => {
       </div>
       <div>
         {doc.node.body1 &&
-          doc.node.body1.map((slice, key) => <Slice key={key} {...slice} />)}
+          doc.node.body1
+            .filter(slice => !!slice.type)
+            .map((slice, key) => (
+              <Slice key={key} alternateLayout={!!(key & 1)} {...slice} />
+            ))}
       </div>
     </Layout>
   )

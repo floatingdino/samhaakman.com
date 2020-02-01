@@ -49,12 +49,22 @@ const IndexPage = ({ data }) => {
                   </div>
                 </div>
                 <div className="cell large-shrink">
-                  <Img
-                    fixed={node.preview_imageSharp.childImageSharp.fixed}
-                    alt={node.preview_image.alt}
-                    className="large-card-image"
-                    style={{ display: "block" }}
-                  />
+                  {(node.preview_imageSharp &&
+                    node.preview_imageSharp.childImageSharp && (
+                      <Img
+                        fixed={node.preview_imageSharp.childImageSharp.fixed}
+                        alt={node.preview_image.alt}
+                        className="large-card-image"
+                        style={{ display: "block" }}
+                      />
+                    )) || (
+                    <img
+                      src={node.preview_image.url}
+                      alt={node.preview_image.alt}
+                      className="large-card-image"
+                      style={{ display: "block" }}
+                    />
+                  )}
                 </div>
               </div>
             </article>
