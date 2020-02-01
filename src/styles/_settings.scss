@@ -24,6 +24,7 @@ $container: 1220px;
 $gutter: (
   small: (
     20px / map-get($font_size, small) * map-get($font_size, large)
+      // Foundation runs grid units through rem-calc, but I'm using a different base size for small screens
   ),
   large: 40px
 );

@@ -37,7 +37,7 @@ const IndexPage = ({ data }) => {
                         "Read More"}
                     </Link>
                   </div>
-                  <div className="cell shrink meta">
+                  <div className="cell shrink meta mt-1">
                     {RichText.asText(node.studio)}{" "}
                     <span className="separator" />{" "}
                     <time>

@@ -32,18 +32,76 @@ header {
 
 .header-nav {
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
+  padding: 0;
+  margin: 0;
   @include foundation.breakpoint(large) {
     margin-right: -10px;
     li {
+      display: flex;
+      align-items: center;
       margin-right: 10px;
       &:nth-of-type(n + 2) {
         &::before {
           content: s.$separator;
-          display: inline-block;
+          display: block;
           margin-right: 10px;
         }
       }
+    }
+  }
+  a {
+    display: block;
+    padding: 15px 0;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes rise {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+@include foundation.breakpoint(small down) {
+  .main-nav {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 70px);
+    background-color: s.$primary;
+    padding: foundation.rem-calc(map-get(s.$outer_padding, small) / 2);
+    animation: fade-in 0.3s;
+    &.hidden {
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s, visibility 0.3s, left 0.1s 0.3s, right 0.1s 0.3s;
+      animation: none;
+      right: 100%;
+      left: -100%;
+    }
+  }
+  .header-nav {
+    animation: rise 0.4s 0.15s ease-out backwards;
+    .hidden & {
+      animation: none;
+    }
+    li {
+      width: 100%;
     }
   }
 }
