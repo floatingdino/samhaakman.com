@@ -3,7 +3,7 @@
 
 body,
 html {
-  font-family: s.$font-family;
+  font-family: sans-serif;
   background-color: s.$primary;
   padding: 0;
   margin: 0;
@@ -18,6 +18,11 @@ html {
       line-height: map-get(s.$line_height, $bp);
     }
   }
+}
+
+html.wf-active,
+.wf-active body {
+  font-family: s.$font_family;
 }
 
 h1,

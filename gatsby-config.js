@@ -73,6 +73,7 @@ module.exports = {
       options: {
         google: {
           families: ["Archivo:400,700"],
+          display: "fallback",
         },
       },
     },
