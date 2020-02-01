@@ -7,6 +7,7 @@ import SEO from "../components/seo"
 
 import BigImage from "../components/bigImage"
 import ContentBlock from "../components/contentBlock"
+import Pullquote from "../components/pullquote"
 
 import "../styles/styles.scss"
 
@@ -27,8 +28,10 @@ const Slice = ({ type, ...props }) => {
           body={props.primary.body}
         />
       )
+    case "pullquote":
+      return <Pullquote pullquote={props.primary.pullquote} />
     default:
-      return <>{`<!-- No slice for ${type} -->`}</>
+      return `${type}`
   }
 }
 
@@ -37,7 +40,6 @@ const Page = ({ data }) => {
   if (!doc) {
     return null
   }
-  console.log(doc.node.body1)
   return (
     <Layout className="page">
       <SEO title={RichText.asText(doc.node.title)} />
@@ -70,7 +72,8 @@ const Page = ({ data }) => {
         </div>
       </div>
       <div>
-        {doc.node.body1 && doc.node.body1.map(slice => <Slice {...slice} />)}
+        {doc.node.body1 &&
+          doc.node.body1.map((slice, key) => <Slice key={key} {...slice} />)}
       </div>
     </Layout>
   )
@@ -107,6 +110,12 @@ export const query = graphql`
                       }
                     }
                   }
+                }
+              }
+              ... on PRISMIC_PortfoBody1Pullquote {
+                type
+                primary {
+                  pullquote
                 }
               }
               ... on PRISMIC_PortfoBody1Content_block {
