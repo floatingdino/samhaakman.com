@@ -26,7 +26,9 @@ const Layout = ({ children, className }) => {
 
   return (
     <div className={`layout-wrapper ${className || ""}`}>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Header
+        siteTitle={(data.site && data.site.siteMetadata.title) || "Sam Haakman"}
+      />
 
       <main>
         <div className="grid-container">{children}</div>
