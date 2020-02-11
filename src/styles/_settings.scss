@@ -10,7 +10,7 @@ $moon: #d1c7f9;
 $remy: lighten($fab, 12%);
 
 $pastel: linear-gradient(20deg, rgba($tulip, 0.8) 0%, rgba($tulip, 0) 60%),
-  linear-gradient(150deg, $fab 0%, $moon 100%);
+  linear-gradient(100deg, $fab 0%, $moon 100%);
 
 $primary: $fab;
 $light: $remy;

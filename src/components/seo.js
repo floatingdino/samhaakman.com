@@ -8,6 +8,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
+import { Location } from "@reach/router"
 import { useStaticQuery, graphql } from "gatsby"
 
 function SEO({ description, lang, meta, title }) {
@@ -19,6 +20,7 @@ function SEO({ description, lang, meta, title }) {
             title
             description
             author
+            url
           }
         }
       }
@@ -76,7 +78,19 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
       ].concat(meta)}
-    />
+    >
+      <Location>
+        {({ location }) => (
+          <link
+            rel="canonical"
+            href={
+              (site && site.siteMetadata.url) ||
+              "https://samhaakman.com" + location.pathname
+            }
+          />
+        )}
+      </Location>
+    </Helmet>
   )
 }
 

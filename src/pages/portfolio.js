@@ -40,12 +40,22 @@ const PortfolioPage = ({ data }) => {
                 </Link>
               </div>
               <div className="cell shrink">
-                <Img
-                  fixed={node.preview_imageSharp.childImageSharp.fixed}
-                  alt={node.preview_image.alt}
-                  className="small-card-image"
-                  style={{ display: "block" }}
-                />
+                {(node.preview_imageSharp &&
+                  node.preview_imageSharp.childImageSharp && (
+                    <Img
+                      fluid={node.preview_imageSharp.childImageSharp.fluid}
+                      alt={node.preview_image.alt}
+                      className="small-card-image"
+                      style={{ display: "block" }}
+                    />
+                  )) || (
+                  <img
+                    src={node.preview_image.url}
+                    alt={node.preview_image.alt}
+                    className="small-card-image"
+                    style={{ display: "block" }}
+                  />
+                )}
               </div>
             </article>
           ))}
@@ -67,8 +77,8 @@ export const query = graphql`
             preview_image
             preview_imageSharp {
               childImageSharp {
-                fixed(width: 590) {
-                  ...GatsbyImageSharpFixed_withWebp
+                fluid(maxWidth: 590, maxHeight: 560) {
+                  ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }

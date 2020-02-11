@@ -49,7 +49,9 @@ const Page = ({ data }) => {
       <div className="grid-x grid-margin-x align-justify">
         <div className="cell large-4">
           <h1 className="mt-0">{RichText.asText(doc.node.title)} </h1>
-          {doc.node.teaser && <RichText render={doc.node.teaser} />}
+          {doc.node.teaser && (
+            <h2 className="h3">{RichText.asText(doc.node.teaser)} </h2>
+          )}
           <div className="meta">
             {RichText.asText(doc.node.studio)} <span className="separator" />{" "}
             <time>

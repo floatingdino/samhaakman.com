@@ -21,6 +21,6 @@
 main {
   padding-top: 90px;
   @include foundation.breakpoint(large) {
-    padding-top: 220px;
+    padding-top: 180px;
   }
 }
