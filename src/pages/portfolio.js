@@ -16,7 +16,7 @@ const PortfolioPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Portfolio" />
-      <h1>
+      <h1 className="mt-0">
         Portfolio
         {data.prismic.allPortfos.totalCount && (
           <sup>[{data.prismic.allPortfos.totalCount}]</sup>

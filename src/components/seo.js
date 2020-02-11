@@ -25,7 +25,10 @@ function SEO({ description, lang, meta, title }) {
     `
   )
 
-  const metaDescription = description || site.siteMetadata.description
+  const metaDescription =
+    description ||
+    (site && site.siteMetadata.description) ||
+    "Building super fast websites that you love to see"
 
   return (
     <Helmet
@@ -33,7 +36,8 @@ function SEO({ description, lang, meta, title }) {
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={`%s | ${(site && site.siteMetadata.title) ||
+        "Sam Haakman"}`}
       meta={[
         {
           name: "robots",
@@ -61,7 +65,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: (site && site.siteMetadata.author) || "Sam Haakman",
         },
         {
           name: `twitter:title`,
