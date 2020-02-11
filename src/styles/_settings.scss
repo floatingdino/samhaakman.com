@@ -3,8 +3,17 @@
 $eggplant: #4f304c;
 $bonjour: lighten($eggplant, 67%);
 
-$primary: $eggplant;
-$light: $bonjour;
+$fab: #fab2d7;
+$tulip: #98d6e5;
+$moon: #d1c7f9;
+
+$remy: lighten($fab, 12%);
+
+$pastel: linear-gradient(20deg, rgba($tulip, 0.8) 0%, rgba($tulip, 0) 60%),
+  linear-gradient(150deg, $fab 0%, $moon 100%);
+
+$primary: $fab;
+$light: $remy;
 
 $font_family: Archivo, sans-serif;
 $font_size: (

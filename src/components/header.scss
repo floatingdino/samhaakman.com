@@ -4,19 +4,24 @@
 header {
   padding-top: 20px;
   padding-bottom: 20px;
-  background-color: s.$primary;
+  background-color: transparent;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 2;
-  @if lightness(s.$primary) > 50 {
-    color: black;
-  } @else {
-    color: white;
-  }
+  // @if lightness(s.$primary) > 50 {
+  //   color: black;
+  // } @else {
+  //   color: white;
+  // }
+  color: white;
   @include foundation.breakpoint(large) {
     padding-top: 40px;
     padding-bottom: 40px;
+  }
+  &.menu-open {
+    background-color: s.$primary;
+    color: white;
   }
 }
 

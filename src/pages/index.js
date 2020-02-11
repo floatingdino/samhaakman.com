@@ -48,11 +48,11 @@ const IndexPage = ({ data }) => {
                     </time>
                   </div>
                 </div>
-                <div className="cell large-shrink">
+                <div className="cell large-6">
                   {(node.preview_imageSharp &&
                     node.preview_imageSharp.childImageSharp && (
                       <Img
-                        fixed={node.preview_imageSharp.childImageSharp.fixed}
+                        fluid={node.preview_imageSharp.childImageSharp.fluid}
                         alt={node.preview_image.alt}
                         className="large-card-image"
                         style={{ display: "block" }}
@@ -97,8 +97,8 @@ export const query = graphql`
             preview_image
             preview_imageSharp {
               childImageSharp {
-                fixed(height: 560) {
-                  ...GatsbyImageSharpFixed_withWebp
+                fluid(maxHeight: 560) {
+                  ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }

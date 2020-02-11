@@ -2,7 +2,8 @@
 @use "foundation";
 
 .portfolio-slice-pullquote {
-  background-color: s.$light;
+  background-color: s.$remy;
+  color: black;
   padding: 40px 0;
   @include foundation.breakpoint(large) {
     padding: 160px 0;

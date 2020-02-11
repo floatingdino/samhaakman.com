@@ -2,12 +2,14 @@
 @use "foundation";
 
 .card {
-  @if lightness(s.$primary) < 50 {
-    background-color: white;
-  } @else {
-    background-color: black;
-  }
-  color: s.$primary;
+  // @if lightness(s.$primary) < 50 {
+  //   background-color: white;
+  // } @else {
+  //   background-color: black;
+  // }
+  // color: s.$primary;
+  background-color: white;
+  color: black;
   padding: 20px;
   box-shadow: s.$shadow;
   border-radius: 5px;

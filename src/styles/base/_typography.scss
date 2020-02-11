@@ -5,13 +5,16 @@ body,
 html {
   font-family: sans-serif;
   background-color: s.$primary;
+  background-image: s.$pastel;
+  background-attachment: fixed;
   padding: 0;
   margin: 0;
-  @if lightness(s.$primary) > 50 {
-    color: black;
-  } @else {
-    color: white;
-  }
+  // @if lightness(s.$primary) > 50 {
+  //   color: black;
+  // } @else {
+  //   color: white;
+  // }
+  color: white;
   @each $bp, $size in s.$font_size {
     @include foundation.breakpoint($bp) {
       font-size: $size;

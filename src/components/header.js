@@ -7,7 +7,7 @@ import "./header.scss"
 const Header = ({ siteTitle }) => {
   const [open, setOpen] = useState(false)
   return (
-    <header className="mb-2">
+    <header className={`mb-2 ${(open && "menu-open") || ""}`}>
       <div className="grid-container">
         <div className="grid-x align-justify align-middle">
           <div className="cell auto">
