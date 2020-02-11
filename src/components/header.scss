@@ -19,7 +19,7 @@ header {
     padding-top: 40px;
     padding-bottom: 40px;
   }
-  &.menu-open {
+  .layout-wrapper.page &.menu-open {
     background-color: s.$primary;
     color: white;
   }
@@ -126,7 +126,7 @@ header {
     content: "";
     width: 25px;
     height: 2px;
-    background-color: white;
+    background-color: currentColor;
     display: block;
     position: absolute;
     left: 50%;
