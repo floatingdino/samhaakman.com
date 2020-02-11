@@ -20,7 +20,6 @@ function SEO({ description, lang, meta, title }) {
             title
             description
             author
-            url
           }
         }
       }
@@ -41,10 +40,6 @@ function SEO({ description, lang, meta, title }) {
       titleTemplate={`%s | ${(site && site.siteMetadata.title) ||
         "Sam Haakman"}`}
       meta={[
-        {
-          name: "robots",
-          content: "noindex",
-        },
         {
           name: `description`,
           content: metaDescription,
@@ -78,19 +73,7 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
       ].concat(meta)}
-    >
-      <Location>
-        {({ location }) => (
-          <link
-            rel="canonical"
-            href={
-              (site && site.siteMetadata.url) ||
-              "https://samhaakman.com" + location.pathname
-            }
-          />
-        )}
-      </Location>
-    </Helmet>
+    />
   )
 }
 

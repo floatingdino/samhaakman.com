@@ -5,11 +5,16 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `Sam Haakman`,
-    description: `I build really fast websites that look good`,
+    description: `Building super fast websites that you love to see`,
     author: `Sam Haakman`,
-    url: "https://samhaakman.com",
   },
   plugins: [
+    {
+      resolve: "gatsby-plugin-canonical-urls",
+      options: {
+        siteUrl: "https://samhaakman.com",
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
