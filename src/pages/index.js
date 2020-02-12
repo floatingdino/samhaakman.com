@@ -70,6 +70,7 @@ const IndexPage = ({ data }) => {
                       alt={case_study.preview_image.alt}
                       className="large-card-image"
                       style={{ display: "block" }}
+                      loading="lazy"
                     />
                   )}
                 </div>

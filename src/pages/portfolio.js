@@ -54,6 +54,7 @@ const PortfolioPage = ({ data }) => {
                     alt={node.preview_image.alt}
                     className="small-card-image"
                     style={{ display: "block" }}
+                    loading="lazy"
                   />
                 )}
               </div>
