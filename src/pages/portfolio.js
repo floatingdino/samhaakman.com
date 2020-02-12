@@ -1,12 +1,12 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
-import Img from "gatsby-image"
 import { RichText } from "prismic-reactjs"
 
 import { linkResolver } from "../utils/linkResolver"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Image from "../components/image"
 
 import "../styles/styles.scss"
 import "./portfolio.scss"
@@ -40,23 +40,11 @@ const PortfolioPage = ({ data }) => {
                 </Link>
               </div>
               <div className="cell shrink">
-                {(node.preview_imageSharp &&
-                  node.preview_imageSharp.childImageSharp && (
-                    <Img
-                      fluid={node.preview_imageSharp.childImageSharp.fluid}
-                      alt={node.preview_image.alt}
-                      className="small-card-image"
-                      style={{ display: "block" }}
-                    />
-                  )) || (
-                  <img
-                    src={node.preview_image.url}
-                    alt={node.preview_image.alt}
-                    className="small-card-image"
-                    style={{ display: "block" }}
-                    loading="lazy"
-                  />
-                )}
+                <Image
+                  sharp={node.preview_imageSharp}
+                  image={node.preview_image}
+                  className="small-card-image"
+                />
               </div>
             </article>
           ))}

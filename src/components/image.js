@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import Img from "gatsby-image"
 
+// TODO: Only unhide after load event
 export default class Image extends Component {
   constructor(props) {
     super(props)
