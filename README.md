@@ -10,7 +10,9 @@
 ## About
 
 This repo is the personal site of Sam Haakman. Data is sourced from Prismic and templating is handled by Gatsby. Deployments are on Zeit Now.
+
 Feel free to have a poke around if you're interested in how I write code.
+
 Get in touch if you're intrigued [sam@samhaakman.com](mailto:sam@samhaakman.com).
 
 ## 🚀 Getting started
