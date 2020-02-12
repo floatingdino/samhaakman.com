@@ -72,8 +72,8 @@ export default class Image extends Component {
                 ref={this.tag}
                 style={{
                   display: "block",
-                  height: (!visible && image.dimensions.height) || null,
-                  width: (!visible && image.dimensions.width) || null,
+                  height: (!visible && "1px") || null,
+                  width: (!visible && "1px") || null,
                   opacity: (!visible && 0) || null,
                   transition: "opacity 0.3s",
                   position: (!visible && "absolute") || null,
