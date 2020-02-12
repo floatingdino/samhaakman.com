@@ -36,8 +36,8 @@ module.exports = {
         name: `samhaakman.com`,
         short_name: `sam`,
         start_url: `/`,
-        background_color: `#4F304C`,
-        theme_color: `#4F304C`,
+        background_color: `#fab2d7`,
+        theme_color: `#fab2d7`,
         display: `minimal-ui`,
         icon: `src/images/fab.png`, // This path is relative to the root of the site.
       },

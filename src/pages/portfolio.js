@@ -74,6 +74,7 @@ export const query = graphql`
         edges {
           node {
             title
+            teaser
             preview_image
             preview_imageSharp {
               childImageSharp {
