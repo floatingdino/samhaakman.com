@@ -14,12 +14,18 @@ const ContentBlock = ({ body, image, originalImage, alt, ...props }) => (
       <div className="cell large-6">
         {(image && image.childImageSharp && (
           <Img
-            fixed={image.childImageSharp.fixed}
+            fluid={image.childImageSharp.fluid}
             alt={alt}
             style={{ display: "block" }}
+            className="mt-2 mb-2"
           />
         )) || (
-          <img src={originalImage.url} alt={alt} style={{ display: "block" }} />
+          <img
+            src={originalImage.url}
+            alt={alt}
+            style={{ display: "block" }}
+            className="mt-2 mb-2"
+          />
         )}
       </div>
     </div>

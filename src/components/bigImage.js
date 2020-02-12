@@ -5,7 +5,7 @@ const BigImage = ({ image, originalImage, alt }) => (
   <div className="portfolio-slice portfolio-slice-big-image mt-4 mb-4">
     {(image && image.childImageSharp && (
       <Img
-        fixed={image.childImageSharp.fixed}
+        fluid={image.childImageSharp.fluid}
         alt={alt}
         style={{ display: "block" }}
       />

@@ -13,6 +13,7 @@
   padding: 20px;
   box-shadow: s.$shadow;
   border-radius: 5px;
+  overflow: hidden;
   @include foundation.breakpoint(large) {
     padding: 40px;
   }

@@ -46,7 +46,7 @@ const Page = ({ data }) => {
   return (
     <Layout className="page">
       <SEO title={RichText.asText(doc.node.title)} />
-      <div className="grid-x grid-margin-x align-justify">
+      <div className="grid-x grid-margin-x grid-margin-y align-justify">
         <div className="cell large-4">
           <h1 className="mt-0">{RichText.asText(doc.node.title)} </h1>
           {doc.node.teaser && (
@@ -114,8 +114,8 @@ export const query = graphql`
                   image
                   imageSharp {
                     childImageSharp {
-                      fixed(width: 1220) {
-                        ...GatsbyImageSharpFixed_withWebp
+                      fluid(maxWidth: 1220) {
+                        ...GatsbyImageSharpFluid_withWebp
                       }
                     }
                   }
@@ -134,8 +134,8 @@ export const query = graphql`
                   image
                   imageSharp {
                     childImageSharp {
-                      fixed(width: 560) {
-                        ...GatsbyImageSharpFixed_withWebp
+                      fluid(maxWidth: 560) {
+                        ...GatsbyImageSharpFluid_withWebp
                       }
                     }
                   }

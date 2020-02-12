@@ -30,7 +30,7 @@ const IndexPage = ({ data }) => {
               <div className="grid-x align-justify">
                 <div className="cell large-4 small-8 grid-y">
                   <div className="cell auto grid-y align-center">
-                    <h2 className="h1 mb-1">
+                    <h2 className="h1 mt-0 mb-1">
                       {RichText.asText(case_study.teaser || case_study.title)}
                     </h2>
                     <Link
