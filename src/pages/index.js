@@ -5,6 +5,7 @@ import { RichText, Date } from "prismic-reactjs"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Image from "../components/image"
 
 import { linkResolver } from "../utils/linkResolver"
 
@@ -14,7 +15,6 @@ import "./index.scss"
 const IndexPage = ({ data }) => {
   const doc = data.prismic.allHomepages.edges.slice(0, 1).pop()
   const articles = doc.node.featured_case_studies
-  console.log(articles)
   return (
     <Layout>
       <SEO title="Home" />
@@ -54,25 +54,11 @@ const IndexPage = ({ data }) => {
                   </div>
                 </div>
                 <div className="cell large-6">
-                  {(case_study.preview_imageSharp &&
-                    case_study.preview_imageSharp.childImageSharp && (
-                      <Img
-                        fluid={
-                          case_study.preview_imageSharp.childImageSharp.fluid
-                        }
-                        alt={case_study.preview_image.alt}
-                        className="large-card-image"
-                        style={{ display: "block" }}
-                      />
-                    )) || (
-                    <img
-                      src={case_study.preview_image.url}
-                      alt={case_study.preview_image.alt}
-                      className="large-card-image"
-                      style={{ display: "block" }}
-                      loading="lazy"
-                    />
-                  )}
+                  <Image
+                    sharp={case_study.preview_imageSharp}
+                    image={case_study.preview_image}
+                    className="large-card-image"
+                  />
                 </div>
               </div>
             </article>
