@@ -77,7 +77,7 @@ export const query = graphql`
             preview_image
             preview_imageSharp {
               childImageSharp {
-                fixed(maxWidth: 590, maxHeight: 510) {
+                fluid(maxWidth: 590, maxHeight: 510) {
                   ...GatsbyImageSharpFluid_withWebp
                 }
               }
