@@ -63,6 +63,10 @@ const IndexPage = ({ data }) => {
             </article>
           ))}
       </div>
+      <Link to="/portfolio">
+        + {data.prismic.allPortfos.totalCount - articles.length} more projects
+        on my portfolio page
+      </Link>
     </Layout>
   )
 }
@@ -72,6 +76,9 @@ export default IndexPage
 export const query = graphql`
   {
     prismic {
+      allPortfos {
+        totalCount
+      }
       allHomepages(first: 1) {
         edges {
           node {
