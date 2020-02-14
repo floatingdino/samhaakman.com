@@ -15,6 +15,13 @@
     header {
       color: black;
     }
+    @media (prefers-color-scheme: dark) {
+      background-color: black;
+      color: white;
+      header {
+        color: white;
+      }
+    }
   }
 }
 

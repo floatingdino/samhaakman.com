@@ -5,6 +5,10 @@
   background-color: s.$remy;
   color: black;
   padding: 40px 0;
+  @media (prefers-color-scheme: dark) {
+    background-color: lighten(black, 4);
+    color: s.$primary;
+  }
   @include foundation.breakpoint(large) {
     padding: 160px 0;
   }
