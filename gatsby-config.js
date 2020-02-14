@@ -7,6 +7,7 @@ module.exports = {
     title: `Sam Haakman`,
     description: `Building super fast websites that you love to see`,
     author: `Sam Haakman`,
+    siteUrl: "https://samhaakman.com",
   },
   plugins: [
     {
@@ -82,6 +83,7 @@ module.exports = {
         },
       },
     },
+    "gatsby-plugin-sitemap",
     {
       resolve: `gatsby-plugin-offline`,
       options: {
