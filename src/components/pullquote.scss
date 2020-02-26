@@ -6,7 +6,7 @@
   color: black;
   padding: 40px 0;
   @media (prefers-color-scheme: dark) {
-    background-color: lighten($primary_alt, 4);
+    background-color: lighten(s.$primary_alt, 4);
     color: s.$light_alt;
   }
   @include foundation.breakpoint(large) {
