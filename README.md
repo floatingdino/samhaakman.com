@@ -18,7 +18,7 @@ Get in touch if you're intrigued [sam@samhaakman.com](mailto:sam@samhaakman.com)
 ## 🚀 Getting started
 
 1. **Download the repo**
-   `git clone https://github.com/floatingdino/samhaakman.com.git`
+   `git clone https://github.com/floatingdino/samhaakman.git`
 
 2. **Install dependencies**
    `npm i`

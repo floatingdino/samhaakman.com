@@ -16,7 +16,7 @@
       color: black;
     }
     @media (prefers-color-scheme: dark) {
-      background-color: black;
+      background-color: s.$primary_alt;
       color: white;
       header {
         color: white;
