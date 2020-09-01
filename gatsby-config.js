@@ -51,7 +51,7 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-source-prismic-graphql",
+      resolve: "@prismicio/gatsby-source-prismic-graphql",
       options: {
         repositoryName: "samhaakman", // (REQUIRED, replace with your own)
         accessToken: process.env.PRISMIC_TOKEN, // (optional API access token)
