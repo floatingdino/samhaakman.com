@@ -11,20 +11,14 @@ import Pullquote from "../components/pullquote"
 
 import "../styles/styles.scss"
 
-const Slice = ({ type, ...props }) => {
-  switch (type) {
+const Slice = ({ slice_type, ...props }) => {
+  switch (slice_type) {
     case "big_image":
-      return (
-        <BigImage
-          image={props.primary.imageSharp}
-          alt={props.primary.image.alt}
-          original_image={props.primary.image}
-        />
-      )
+      return <BigImage image={props.primary.image} />
     case "content_block":
       return (
         <ContentBlock
-          image={props.primary.imageSharp}
+          image={props.primary.image}
           alt={props.primary.image.alt}
           originalImage={props.primary.image}
           body={props.primary.body}
@@ -38,38 +32,38 @@ const Slice = ({ type, ...props }) => {
   }
 }
 
-const Page = ({ data }) => {
-  const doc = data.prismic.allPortfos.edges.slice(0, 1).pop()
+const CaseStudy = ({ data }) => {
+  const doc = data.allPrismicPortfo.nodes.slice(0, 1).pop().data
   if (!doc) {
     return null
   }
   return (
     <Layout className="page">
-      <SEO title={RichText.asText(doc.node.title)} />
+      <SEO title={RichText.asText(doc.title.raw)} />
       <div className="grid-x grid-margin-x grid-margin-y align-justify">
         <div className="cell large-4">
-          <h1 className="mt-0">{RichText.asText(doc.node.title)} </h1>
-          {doc.node.teaser && (
-            <h2 className="h3">{RichText.asText(doc.node.teaser)} </h2>
+          <h1 className="mt-0">{RichText.asText(doc.title.raw)} </h1>
+          {doc.teaser && (
+            <h2 className="h3">{RichText.asText(doc.teaser.raw)} </h2>
           )}
           <div className="meta">
-            {RichText.asText(doc.node.studio)} <span className="separator" />{" "}
+            {RichText.asText(doc.studio.raw)} <span className="separator" />{" "}
             <time>
               {Intl.DateTimeFormat("en-GB", {
                 month: "long",
                 year: "numeric",
-              }).format(Date(doc.node.project_date))}
+              }).format(Date(doc.project_date))}
             </time>
           </div>
         </div>
         <div className="cell large-6">
-          {RichText.render(doc.node.excerpt)}
+          {RichText.render(doc.excerpt.raw)}
           <a
-            href={Link.url(doc.node.site_link)}
+            href={Link.url(doc.site_link.url)}
             target="_blank"
             rel="nofollow noopener noreferrer"
           >
-            {doc.node.site_link.url
+            {doc.site_link.url
               .replace("http://", "")
               .replace("https://", "")
               .slice(0, -1)}
@@ -77,9 +71,9 @@ const Page = ({ data }) => {
         </div>
       </div>
       <div>
-        {doc.node.body1 &&
-          doc.node.body1
-            .filter(slice => !!slice.type)
+        {doc.body1 &&
+          doc.body1
+            .filter(slice => !!slice.slice_type)
             .map((slice, key) => (
               <Slice key={key} alternateLayout={!!(key & 1)} {...slice} />
             ))}
@@ -88,63 +82,71 @@ const Page = ({ data }) => {
   )
 }
 
-export default Page
+export default CaseStudy
 
-// export const query = graphql`
-//   query PortfolioQuery($uid: String) {
-//     prismic {
-//       allPortfos(uid: $uid) {
-//         edges {
-//           node {
-//             title
-//             teaser
-//             studio
-//             site_link {
-//               ... on PRISMIC__ExternalLink {
-//                 url
-//               }
-//             }
-//             excerpt
-//             project_date
-//             body1 {
-//               __typename
-//               ... on PRISMIC_PortfoBody1Big_image {
-//                 type
-//                 primary {
-//                   image
-//                   imageSharp {
-//                     childImageSharp {
-//                       fluid(maxWidth: 1220) {
-//                         ...GatsbyImageSharpFluid_withWebp
-//                       }
-//                     }
-//                   }
-//                 }
-//               }
-//               ... on PRISMIC_PortfoBody1Pullquote {
-//                 type
-//                 primary {
-//                   pullquote
-//                 }
-//               }
-//               ... on PRISMIC_PortfoBody1Content_block {
-//                 type
-//                 primary {
-//                   body
-//                   image
-//                   imageSharp {
-//                     childImageSharp {
-//                       fluid(maxWidth: 560) {
-//                         ...GatsbyImageSharpFluid_withWebp
-//                       }
-//                     }
-//                   }
-//                 }
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// `
+export const query = graphql`
+  query PortfolioQuery($uid: String) {
+    allPrismicPortfo(filter: { uid: { eq: $uid } }) {
+      nodes {
+        data {
+          title {
+            raw
+          }
+          teaser {
+            raw
+          }
+          studio {
+            raw
+          }
+          site_link {
+            url
+          }
+          excerpt {
+            raw
+          }
+          project_date
+          body1 {
+            ... on PrismicPortfoBody1ContentBlock {
+              id
+              primary {
+                body {
+                  raw
+                }
+                image {
+                  fluid(maxWidth: 1220) {
+                    ...GatsbyPrismicImageFluid_withWebp
+                  }
+                  alt
+                  url
+                }
+              }
+              slice_type
+            }
+            ... on PrismicPortfoBody1Pullquote {
+              id
+              slice_type
+              primary {
+                pullquote {
+                  raw
+                }
+              }
+            }
+            ... on PrismicPortfoBody1BigImage {
+              id
+              slice_type
+              primary {
+                image {
+                  alt
+                  url
+                  fluid(maxWidth: 1220) {
+                    ...GatsbyPrismicImageFluid_withWebp
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`

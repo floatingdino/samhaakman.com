@@ -10,16 +10,16 @@ import "../styles/styles.scss"
 import "./index.scss"
 
 const IndexPage = ({ data }) => {
-  const doc = data.allPrismicHomepage.edges.slice(0, 1).pop()
-  const articles = doc.node.data.featured_case_studies
+  const doc = data.allPrismicHomepage.nodes.slice(0, 1).pop()
+  const articles = doc.data.featured_case_studies
   return (
     <Layout>
       <SEO title="Home" />
       <h1 className="mt-0">
-        {(doc && RichText.asText(doc.node.data.title.raw)) ||
+        {(doc && RichText.asText(doc.data.title.raw)) ||
           "I'm Sam! Welcome to my website"}
       </h1>
-      {doc && RichText.render(doc.node.data.body.raw)}
+      {doc && RichText.render(doc.data.body.raw)}
       <div className="article-wrapper">
         {articles &&
           articles.map(article => {
@@ -78,35 +78,33 @@ export default IndexPage
 export const query = graphql`
   {
     allPrismicHomepage(limit: 1) {
-      edges {
-        node {
-          data {
-            title {
-              raw
-            }
-            body {
-              raw
-            }
-            featured_case_studies {
-              case_study {
-                document {
-                  ... on PrismicPortfo {
-                    uid
-                    data {
-                      title {
-                        raw
-                      }
-                      teaser {
-                        raw
-                      }
-                      studio {
-                        raw
-                      }
-                      project_date
-                      preview_image {
-                        fluid(maxHeight: 560) {
-                          ...GatsbyPrismicImageFluid_withWebp
-                        }
+      nodes {
+        data {
+          title {
+            raw
+          }
+          body {
+            raw
+          }
+          featured_case_studies {
+            case_study {
+              document {
+                ... on PrismicPortfo {
+                  uid
+                  data {
+                    title {
+                      raw
+                    }
+                    teaser {
+                      raw
+                    }
+                    studio {
+                      raw
+                    }
+                    project_date
+                    preview_image {
+                      fluid(maxHeight: 560) {
+                        ...GatsbyPrismicImageFluid_withWebp
                       }
                     }
                   }
@@ -114,9 +112,9 @@ export const query = graphql`
               }
             }
           }
-          uid
-          type
         }
+        uid
+        type
       }
     }
     allPrismicPortfo {

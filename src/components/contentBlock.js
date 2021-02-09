@@ -10,7 +10,7 @@ const ContentBlock = ({ body, image, originalImage, alt, ...props }) => (
         className="cell large-6"
         style={{ order: (props.alternateLayout && "1") || null }}
       >
-        <RichText render={body} />
+        <RichText render={body.raw} />
       </div>
       <div className="cell large-6">
         <Image
