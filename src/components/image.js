@@ -54,6 +54,7 @@ export default class Image extends Component {
             fluid={image.fluid}
             alt={image.alt}
             style={{ display: "block" }}
+            durationFadeIn={300}
             {...this.props}
           />
         )) ||
@@ -62,13 +63,14 @@ export default class Image extends Component {
               fixed={image.fixed}
               alt={image.alt}
               style={{ display: "block" }}
+              durationFadeIn={300}
               className={className}
             />
           )) || (
             <>
               <img
                 src={(visible && image?.url) || ""}
-                alt={image?.alt}
+                alt={image?.alt || true}
                 ref={this.tag}
                 style={{
                   display: "block",
@@ -81,7 +83,11 @@ export default class Image extends Component {
                 className={className}
               />
               <noscript>
-                <img src={image?.url} alt={image?.alt} className={className} />
+                <img
+                  src={image?.url}
+                  alt={image?.alt || true}
+                  className={className}
+                />
               </noscript>
             </>
           )}

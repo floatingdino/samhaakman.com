@@ -2,8 +2,6 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import { RichText } from "prismic-reactjs"
 
-import { linkResolver } from "../utils/linkResolver"
-
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Image from "../components/image"

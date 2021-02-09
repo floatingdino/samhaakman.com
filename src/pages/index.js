@@ -22,10 +22,13 @@ const IndexPage = ({ data }) => {
       {doc && RichText.render(doc.data.body.raw)}
       <div className="article-wrapper">
         {articles &&
-          articles.map(article => {
+          articles.map((article, idx) => {
             const case_study = article.case_study.document.data
             return (
-              <article className="card mb-2" key={case_study.uid}>
+              <article
+                className="card mb-2"
+                key={article.case_study.document.uid}
+              >
                 <div className="grid-x align-justify">
                   <div className="cell large-4 small-8 grid-y">
                     <div className="cell auto grid-y align-center">
@@ -35,7 +38,7 @@ const IndexPage = ({ data }) => {
                         )}
                       </h2>
                       <Link
-                        to={`/portfolio/${case_study.uid}`}
+                        to={`/portfolio/${article.case_study.document.uid}`}
                         className="arrow-link"
                       >
                         {(case_study.teaser &&
@@ -57,7 +60,9 @@ const IndexPage = ({ data }) => {
                   <div className="cell large-6">
                     <Image
                       image={case_study.preview_image}
+                      loading={idx === 0 ? "eager" : null}
                       className="large-card-image"
+                      // sizes="(min-width: 1300px) 650px, (min-width: 64em) 50vw, 100vw"
                     />
                   </div>
                 </div>
@@ -103,7 +108,7 @@ export const query = graphql`
                     }
                     project_date
                     preview_image {
-                      fluid(maxHeight: 560) {
+                      fluid(maxHeight: 560, maxWidth: 650) {
                         ...GatsbyPrismicImageFluid_withWebp
                       }
                     }
@@ -113,8 +118,6 @@ export const query = graphql`
             }
           }
         }
-        uid
-        type
       }
     }
     allPrismicPortfo {

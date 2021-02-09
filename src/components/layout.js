@@ -28,7 +28,7 @@ const Layout = ({ children, className }) => {
               <a
                 href="https://github.com/floatingdino"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
               >
                 Github
               </a>{" "}

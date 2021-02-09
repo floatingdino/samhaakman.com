@@ -1,8 +1,3 @@
-<p>
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
-  </a>
-</p>
 <h1>
   Samhaakman.com
 </h1>
@@ -26,7 +21,7 @@ Get in touch if you're intrigued [sam@samhaakman.com](mailto:sam@samhaakman.com)
    `npm i`
 
 3. **Setup Data source**
-   Add PRISMIC_TOKEN to `.env.development`
+   Add PRISMIC_TOKEN to `.env`
 
 4. **Let it rip**
    `npm start`
