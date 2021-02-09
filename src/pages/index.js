@@ -6,66 +6,68 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Image from "../components/image"
 
-import { linkResolver } from "../utils/linkResolver"
-
 import "../styles/styles.scss"
 import "./index.scss"
 
 const IndexPage = ({ data }) => {
-  const doc = data.prismic.allHomepages.edges.slice(0, 1).pop()
-  const articles = doc.node.featured_case_studies
+  const doc = data.allPrismicHomepage.edges.slice(0, 1).pop()
+  const articles = doc.node.data.featured_case_studies
   return (
     <Layout>
       <SEO title="Home" />
       <h1 className="mt-0">
-        {(doc && RichText.asText(doc.node.title)) ||
+        {(doc && RichText.asText(doc.node.data.title.raw)) ||
           "I'm Sam! Welcome to my website"}
       </h1>
-      {doc && RichText.render(doc.node.body)}
+      {doc && RichText.render(doc.node.data.body.raw)}
       <div className="article-wrapper">
         {articles &&
-          articles.map(({ case_study }) => (
-            <article className="card mb-2" key={case_study._meta.uid}>
-              <div className="grid-x align-justify">
-                <div className="cell large-4 small-8 grid-y">
-                  <div className="cell auto grid-y align-center">
-                    <h2 className="h1 mt-0 mb-1">
-                      {RichText.asText(case_study.teaser || case_study.title)}
-                    </h2>
-                    <Link
-                      to={linkResolver(case_study._meta)}
-                      className="arrow-link"
-                    >
-                      {(case_study.teaser &&
-                        RichText.asText(case_study.title)) ||
-                        "Read More"}
-                    </Link>
+          articles.map(article => {
+            const case_study = article.case_study.document.data
+            return (
+              <article className="card mb-2" key={case_study.uid}>
+                <div className="grid-x align-justify">
+                  <div className="cell large-4 small-8 grid-y">
+                    <div className="cell auto grid-y align-center">
+                      <h2 className="h1 mt-0 mb-1">
+                        {RichText.asText(
+                          case_study.teaser.raw || case_study.title.raw
+                        )}
+                      </h2>
+                      <Link
+                        to={`/portfolio/${case_study.uid}`}
+                        className="arrow-link"
+                      >
+                        {(case_study.teaser &&
+                          RichText.asText(case_study.title.raw)) ||
+                          "Read More"}
+                      </Link>
+                    </div>
+                    <div className="cell shrink meta mt-1">
+                      {RichText.asText(case_study.studio.raw)}{" "}
+                      <span className="separator" />{" "}
+                      <time>
+                        {Intl.DateTimeFormat("en-GB", {
+                          month: "long",
+                          year: "numeric",
+                        }).format(Date(case_study.project_date))}
+                      </time>
+                    </div>
                   </div>
-                  <div className="cell shrink meta mt-1">
-                    {RichText.asText(case_study.studio)}{" "}
-                    <span className="separator" />{" "}
-                    <time>
-                      {Intl.DateTimeFormat("en-GB", {
-                        month: "long",
-                        year: "numeric",
-                      }).format(Date(case_study.project_date))}
-                    </time>
+                  <div className="cell large-6">
+                    <Image
+                      image={case_study.preview_image}
+                      className="large-card-image"
+                    />
                   </div>
                 </div>
-                <div className="cell large-6">
-                  <Image
-                    sharp={case_study.preview_imageSharp}
-                    image={case_study.preview_image}
-                    className="large-card-image"
-                  />
-                </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            )
+          })}
       </div>
       <Link to="/portfolio">
-        + {data.prismic.allPortfos.totalCount - articles.length} more projects
-        on my portfolio page
+        + {data.allPrismicPortfo.totalCount - articles.length} more projects on
+        my portfolio page
       </Link>
     </Layout>
   )
@@ -75,41 +77,50 @@ export default IndexPage
 
 export const query = graphql`
   {
-    prismic {
-      allPortfos {
-        totalCount
-      }
-      allHomepages(first: 1) {
-        edges {
-          node {
-            title
-            body
+    allPrismicHomepage(limit: 1) {
+      edges {
+        node {
+          data {
+            title {
+              raw
+            }
+            body {
+              raw
+            }
             featured_case_studies {
               case_study {
-                _linkType
-                ... on PRISMIC_Portfo {
-                  title
-                  teaser
-                  studio
-                  project_date
-                  preview_image
-                  preview_imageSharp {
-                    childImageSharp {
-                      fluid(maxHeight: 560) {
-                        ...GatsbyImageSharpFluid_withWebp
+                document {
+                  ... on PrismicPortfo {
+                    uid
+                    data {
+                      title {
+                        raw
+                      }
+                      teaser {
+                        raw
+                      }
+                      studio {
+                        raw
+                      }
+                      project_date
+                      preview_image {
+                        fluid(maxHeight: 560) {
+                          ...GatsbyPrismicImageFluid_withWebp
+                        }
                       }
                     }
-                  }
-                  _meta {
-                    uid
-                    type
                   }
                 }
               }
             }
           }
+          uid
+          type
         }
       }
+    }
+    allPrismicPortfo {
+      totalCount
     }
   }
 `

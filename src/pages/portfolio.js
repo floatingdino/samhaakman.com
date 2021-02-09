@@ -12,13 +12,14 @@ import "../styles/styles.scss"
 import "./portfolio.scss"
 
 const PortfolioPage = ({ data }) => {
-  const articles = data.prismic.allPortfos.edges
+  // const articles = data.prismic.allPortfos.edges
+  const articles = []
   return (
     <Layout>
       <SEO title="Portfolio" />
       <h1 className="mt-0">
         Portfolio
-        {data.prismic.allPortfos.totalCount && (
+        {false && data.prismic.allPortfos.totalCount && (
           <sup>[{data.prismic.allPortfos.totalCount}]</sup>
         )}
       </h1>
@@ -55,30 +56,30 @@ const PortfolioPage = ({ data }) => {
 
 export default PortfolioPage
 
-export const query = graphql`
-  {
-    prismic {
-      allPortfos(sortBy: project_date_DESC) {
-        totalCount
-        edges {
-          node {
-            title
-            teaser
-            preview_image
-            preview_imageSharp {
-              childImageSharp {
-                fluid(maxWidth: 590, maxHeight: 510) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
-              }
-            }
-            _meta {
-              uid
-              type
-            }
-          }
-        }
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   {
+//     prismic {
+//       allPortfos(sortBy: project_date_DESC) {
+//         totalCount
+//         edges {
+//           node {
+//             title
+//             teaser
+//             preview_image
+//             preview_imageSharp {
+//               childImageSharp {
+//                 fluid(maxWidth: 590, maxHeight: 510) {
+//                   ...GatsbyImageSharpFluid_withWebp
+//                 }
+//               }
+//             }
+//             _meta {
+//               uid
+//               type
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// `

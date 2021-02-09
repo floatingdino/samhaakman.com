@@ -45,21 +45,21 @@ export default class Image extends Component {
   }
 
   render() {
-    const { sharp, image, className } = this.props
+    const { image, className } = this.props
     const { visible } = this.state
     return (
       <>
-        {(sharp && sharp.childImageSharp && sharp.childImageSharp.fluid && (
+        {(image.fluid && (
           <Img
-            fluid={sharp.childImageSharp.fluid}
+            fluid={image.fluid}
             alt={image.alt}
             style={{ display: "block" }}
             {...this.props}
           />
         )) ||
-          (sharp && sharp.childImageSharp && sharp.childImageSharp.fixed && (
+          (image.fixed && (
             <Img
-              fixed={sharp.childImageSharp.fixed}
+              fixed={image.fixed}
               alt={image.alt}
               style={{ display: "block" }}
               className={className}
@@ -67,8 +67,8 @@ export default class Image extends Component {
           )) || (
             <>
               <img
-                src={(visible && image.url) || ""}
-                alt={image.alt}
+                src={(visible && image?.url) || ""}
+                alt={image?.alt}
                 ref={this.tag}
                 style={{
                   display: "block",
@@ -81,7 +81,7 @@ export default class Image extends Component {
                 className={className}
               />
               <noscript>
-                <img src={image.url} alt={image.alt} className={className} />
+                <img src={image?.url} alt={image?.alt} className={className} />
               </noscript>
             </>
           )}

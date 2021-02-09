@@ -51,28 +51,17 @@ module.exports = {
       },
     },
     {
-      resolve: "@prismicio/gatsby-source-prismic-graphql",
+      resolve: "gatsby-source-prismic",
       options: {
         repositoryName: "samhaakman", // (REQUIRED, replace with your own)
         accessToken: process.env.PRISMIC_TOKEN, // (optional API access token)
-        path: "/preview",
-        previews: process.env.NOW_GITHUB_COMMIT_REF === "staging",
-        omitPrismicScript: process.env.NOW_GITHUB_COMMIT_REF !== "staging",
-        pages: [
-          {
-            // (optional, builds pages dynamically)
-            type: "Portfo", // TypeName from prismic
-            match: "/portfolio/:uid", // Pages will be generated under this pattern
-            path: "/portfolio/case-study", // Placeholder page for unpublished documents
-            component: require.resolve("./src/templates/case-study.js"),
-          },
-          {
-            type: "Page",
-            match: "/:uid",
-            path: "/page",
-            component: require.resolve("./src/templates/page.js"),
-          },
-        ],
+        prismicToolbar: process.env.NOW_GITHUB_COMMIT_REF === "staging",
+        lang: "*",
+        schemas: {
+          portfo: require("./custom_types/portfo.json"),
+          homepage: require("./custom_types/homepage.json"),
+          page: require("./custom_types/page.json"),
+        },
       },
     },
     {

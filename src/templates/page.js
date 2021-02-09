@@ -27,17 +27,17 @@ const Page = ({ data }) => {
 
 export default Page
 
-export const query = graphql`
-  query PageQuery($uid: String) {
-    prismic {
-      allPages(uid: $uid) {
-        edges {
-          node {
-            page_title
-            body
-          }
-        }
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query PageQuery($uid: String) {
+//     prismic {
+//       allPages(uid: $uid) {
+//         edges {
+//           node {
+//             page_title
+//             body
+//           }
+//         }
+//       }
+//     }
+//   }
+// `

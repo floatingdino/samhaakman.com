@@ -90,61 +90,61 @@ const Page = ({ data }) => {
 
 export default Page
 
-export const query = graphql`
-  query PortfolioQuery($uid: String) {
-    prismic {
-      allPortfos(uid: $uid) {
-        edges {
-          node {
-            title
-            teaser
-            studio
-            site_link {
-              ... on PRISMIC__ExternalLink {
-                url
-              }
-            }
-            excerpt
-            project_date
-            body1 {
-              __typename
-              ... on PRISMIC_PortfoBody1Big_image {
-                type
-                primary {
-                  image
-                  imageSharp {
-                    childImageSharp {
-                      fluid(maxWidth: 1220) {
-                        ...GatsbyImageSharpFluid_withWebp
-                      }
-                    }
-                  }
-                }
-              }
-              ... on PRISMIC_PortfoBody1Pullquote {
-                type
-                primary {
-                  pullquote
-                }
-              }
-              ... on PRISMIC_PortfoBody1Content_block {
-                type
-                primary {
-                  body
-                  image
-                  imageSharp {
-                    childImageSharp {
-                      fluid(maxWidth: 560) {
-                        ...GatsbyImageSharpFluid_withWebp
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   query PortfolioQuery($uid: String) {
+//     prismic {
+//       allPortfos(uid: $uid) {
+//         edges {
+//           node {
+//             title
+//             teaser
+//             studio
+//             site_link {
+//               ... on PRISMIC__ExternalLink {
+//                 url
+//               }
+//             }
+//             excerpt
+//             project_date
+//             body1 {
+//               __typename
+//               ... on PRISMIC_PortfoBody1Big_image {
+//                 type
+//                 primary {
+//                   image
+//                   imageSharp {
+//                     childImageSharp {
+//                       fluid(maxWidth: 1220) {
+//                         ...GatsbyImageSharpFluid_withWebp
+//                       }
+//                     }
+//                   }
+//                 }
+//               }
+//               ... on PRISMIC_PortfoBody1Pullquote {
+//                 type
+//                 primary {
+//                   pullquote
+//                 }
+//               }
+//               ... on PRISMIC_PortfoBody1Content_block {
+//                 type
+//                 primary {
+//                   body
+//                   image
+//                   imageSharp {
+//                     childImageSharp {
+//                       fluid(maxWidth: 560) {
+//                         ...GatsbyImageSharpFluid_withWebp
+//                       }
+//                     }
+//                   }
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// `
