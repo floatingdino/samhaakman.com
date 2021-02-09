@@ -1,10 +1,11 @@
 module.exports = {
   ci: {
     collect: {
-      staticDistDir: './public',
+      staticDistDir: "./public",
+      autodiscoverUrlBlocklist: "/offline-plugin-app-shell-fallback/index.html",
     },
     upload: {
-      target: 'temporary-public-storage',
-    }
-  }
+      target: "temporary-public-storage",
+    },
+  },
 }
