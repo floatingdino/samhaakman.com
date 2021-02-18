@@ -62,6 +62,7 @@ const IndexPage = ({ data }) => {
                       image={case_study.preview_image}
                       loading={idx === 0 ? "eager" : "lazy"}
                       className="large-card-image"
+                      fadeIn={idx !== 0}
                       // sizes="(min-width: 1300px) 650px, (min-width: 64em) 50vw, 100vw"
                     />
                   </div>
@@ -109,7 +110,7 @@ export const query = graphql`
                     project_date
                     preview_image {
                       fluid(maxHeight: 560, maxWidth: 650) {
-                        ...GatsbyPrismicImageFluid_withWebp
+                        ...GatsbyPrismicImageFluid_withWebp_noBase64
                       }
                     }
                   }
