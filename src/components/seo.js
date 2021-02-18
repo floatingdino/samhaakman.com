@@ -74,9 +74,10 @@ function SEO({ description, lang, meta, title }) {
       ].concat(meta)}
       link={[
         {
-          rel: "preconnect",
-          href: "https://use.typekit.net",
+          rel: "preload",
+          href: "https://use.typekit.net/kiw7kqt.js",
           crossorigin: "crossorigin",
+          as: "script",
         },
         {
           rel: "preconnect",

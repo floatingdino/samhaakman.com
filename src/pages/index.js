@@ -60,7 +60,7 @@ const IndexPage = ({ data }) => {
                   <div className="cell large-6">
                     <Image
                       image={case_study.preview_image}
-                      loading={idx === 0 ? "eager" : null}
+                      loading={idx === 0 ? "eager" : "lazy"}
                       className="large-card-image"
                       // sizes="(min-width: 1300px) 650px, (min-width: 64em) 50vw, 100vw"
                     />
