@@ -113,7 +113,7 @@ export const query = graphql`
                   raw
                 }
                 image {
-                  fluid(maxWidth: 1220) {
+                  fluid(maxWidth: 590) {
                     ...GatsbyPrismicImageFluid_withWebp
                   }
                   alt
