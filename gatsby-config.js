@@ -10,6 +10,7 @@ module.exports = {
     siteUrl: "https://samhaakman.com",
   },
   plugins: [
+    "gatsby-plugin-preact",
     {
       resolve: "gatsby-plugin-canonical-urls",
       options: {
