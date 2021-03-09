@@ -72,8 +72,8 @@ const IndexPage = ({ data }) => {
           })}
       </div>
       <Link to="/portfolio">
-        + {data.allPrismicPortfo.totalCount - articles.length} more projects on
-        my portfolio page
+        + {data.allPrismicPortfo.totalCount - articles.length} more selected
+        projects on my portfolio page
       </Link>
     </Layout>
   )

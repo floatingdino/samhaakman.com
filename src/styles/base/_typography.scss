@@ -3,7 +3,7 @@
 
 body,
 html {
-  font-family: s.$font_family, sans-serif;
+  font-family: sans-serif;
   background-color: s.$primary;
   background-image: s.$pastel;
   background-attachment: fixed;
@@ -19,6 +19,9 @@ html {
   //   color: white;
   // }
   color: white;
+}
+
+body {
   @each $bp, $size in s.$font_size {
     @include foundation.breakpoint($bp) {
       font-size: $size;
@@ -27,10 +30,10 @@ html {
   }
 }
 
-// html.wf-active,
-// .wf-active body {
-//   font-family: s.$font_family;
-// }
+html.wf-active,
+.wf-active body {
+  font-family: s.$font_family;
+}
 
 h1,
 h2 {

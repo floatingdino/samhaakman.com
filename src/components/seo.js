@@ -75,16 +75,9 @@ function SEO({ description, lang, meta, title }) {
       link={[
         {
           rel: "preload",
-          href: "https://use.typekit.net/kiw7kqt.css",
+          href: "https://use.typekit.net/kiw7kqt.js",
           crossorigin: "anonymous",
-          as: "style",
-        },
-        {
-          rel: "stylesheet",
-          href: "https://use.typekit.net/kiw7kqt.css",
-          crossorigin: "anonymous",
-          // crossorigin: "crossorigin",
-          // as: "script",
+          as: "script",
         },
         {
           rel: "preconnect",

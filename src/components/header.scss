@@ -19,9 +19,13 @@ header {
     padding-top: 40px;
     padding-bottom: 40px;
   }
-  .layout-wrapper.page &.menu-open, &.menu-open {
+  .layout-wrapper.page &.menu-open,
+  &.menu-open {
     background-color: s.$primary;
     color: white;
+    @media (prefers-color-scheme: dark) {
+      background-color: s.$primary-alt;
+    }
   }
 }
 
@@ -91,6 +95,9 @@ header {
     padding: foundation.rem-calc(map-get(s.$outer_padding, small) / 2);
     animation: fade-in 0.3s;
     font-size: map-get(s.$font_size, large);
+    @media (prefers-color-scheme: dark) {
+      background-color: s.$primary-alt;
+    }
     &.hidden {
       visibility: hidden;
       opacity: 0;

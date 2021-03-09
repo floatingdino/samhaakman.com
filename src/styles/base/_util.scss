@@ -22,7 +22,7 @@ $spacing_rhythm: (
   height: 100%;
 }
 
-@for $i from 0 through 5 {
+@for $i from 0 through 4 {
   @each $bp, $r in $spacing_rhythm {
     @include foundation.breakpoint($bp) {
       .mt-#{$i} {

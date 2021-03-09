@@ -68,6 +68,14 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        typekit: {
+          id: "kiw7kqt",
+        },
+      },
+    },
+    {
       resolve: "gatsby-plugin-sitemap",
       options: {
         exclude: ["/preview"],
