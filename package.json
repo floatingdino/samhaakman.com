@@ -2,7 +2,7 @@
   "name": "samhaakman.com",
   "private": true,
   "description": "A portfolio site for Sam",
-  "version": "7.0.1",
+  "version": "7.0.2",
   "author": "Sam Haakman <sam@samhaakman.com>",
   "dependencies": {
     "foundation-sites": "^6.6.3",
