@@ -48,7 +48,9 @@ module.exports = {
       resolve: "gatsby-plugin-sass",
       options: {
         implementation: require("sass"),
-        includePaths: [`${__dirname}/src/styles`],
+        sassOptions: {
+          includePaths: [`${__dirname}/src/styles`],
+        },
       },
     },
     {
@@ -62,14 +64,6 @@ module.exports = {
           portfo: require("./custom_types/portfo.json"),
           homepage: require("./custom_types/homepage.json"),
           page: require("./custom_types/page.json"),
-        },
-      },
-    },
-    {
-      resolve: "gatsby-plugin-web-font-loader",
-      options: {
-        typekit: {
-          id: "kiw7kqt",
         },
       },
     },

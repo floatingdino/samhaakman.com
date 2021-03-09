@@ -75,14 +75,21 @@ function SEO({ description, lang, meta, title }) {
       link={[
         {
           rel: "preload",
-          href: "https://use.typekit.net/kiw7kqt.js",
-          crossorigin: "crossorigin",
-          as: "script",
+          href: "https://use.typekit.net/kiw7kqt.css",
+          crossorigin: "anonymous",
+          as: "style",
+        },
+        {
+          rel: "stylesheet",
+          href: "https://use.typekit.net/kiw7kqt.css",
+          crossorigin: "anonymous",
+          // crossorigin: "crossorigin",
+          // as: "script",
         },
         {
           rel: "preconnect",
           href: "https://images.prismic.io",
-          crossorigin: "crossorigin",
+          crossorigin: "anonymous",
         },
       ]}
     />
