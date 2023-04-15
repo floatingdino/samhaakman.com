@@ -6,7 +6,7 @@
 
 ## About
 
-This repo is the personal site of Sam Haakman. Data is sourced from Prismic and templating is handled by Gatsby. Deployments are on Vercel Now.
+This repo is the personal site of Sam Haakman. Data is sourced from Prismic and templating is handled by Nextjs. Deployed on Vercel.
 
 Feel free to have a poke around if you're interested in how I write code.
 
@@ -15,10 +15,10 @@ Get in touch if you're intrigued [sam@samhaakman.com](mailto:sam@samhaakman.com)
 ## 🚀 Getting started
 
 1. **Download the repo**
-   `git clone https://github.com/floatingdino/samhaakman.git`
+   `git clone https://github.com/floatingdino/samhaakman.com.git`
 
 2. **Install dependencies**
-   `npm i`
+   `pnpm i`
 
 3. **Setup Data source**
    Add PRISMIC_TOKEN to `.env`

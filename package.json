@@ -5,49 +5,38 @@
   "version": "7.0.2",
   "author": "Sam Haakman <sam@samhaakman.com>",
   "dependencies": {
-    "foundation-sites": "^6.6.3",
-    "gatsby": "^3.0.3",
-    "gatsby-image": "^3.0.0",
-    "gatsby-plugin-canonical-urls": "^2.10.0",
-    "gatsby-plugin-manifest": "^3.0.0",
-    "gatsby-plugin-offline": "^3.10.2",
-    "gatsby-plugin-preact": "^5.0.0",
-    "gatsby-plugin-react-helmet": "^4.0.0",
-    "gatsby-plugin-sass": "^4.0.2",
-    "gatsby-plugin-sharp": "^3.0.0",
-    "gatsby-plugin-sitemap": "^3.0.0",
-    "gatsby-plugin-web-font-loader": "^1.0.4",
-    "gatsby-source-filesystem": "^3.0.0",
-    "gatsby-source-prismic": "^3.3.4",
-    "gatsby-transformer-sharp": "^2.12.1",
-    "preact": "^10.5.12",
-    "preact-render-to-string": "^5.1.14",
-    "prismic-reactjs": "^1.3.3",
-    "prop-types": "^15.7.2",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
-    "react-helmet": "^5.2.1",
-    "sass": "^1.32.8"
+    "@josephmark/createstyle": "^1.1.1",
+    "@prismicio/react": "^2.5.2",
+    "autoprefixer": "^10.4.14",
+    "clsx": "^1.2.1",
+    "next": "^13.3.0",
+    "postcss": "^8.4.21",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.3.1",
+    "typescript": "^5.0.4"
   },
   "devDependencies": {
-    "prettier": "^1.19.1"
+    "@josephmark/eslint-config-next": "^1.1.3",
+    "@types/node": "18.15.11",
+    "@types/react": "^18.0.35",
+    "@types/react-dom": "^18.0.11",
+    "eslint": "^8.38.0",
+    "prettier": "^2.8.7"
   },
-  "browserslist": [
-    "defaults",
-    "not IE 11"
-  ],
   "keywords": [
-    "gatsby"
+    "next",
+    "react",
+    "typescript",
+    "tailwind"
   ],
-  "license": "MIT",
+  "license": "UNLICENSED",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run -s develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "next lint && tsc --diagnostics"
   },
   "repository": {
     "type": "git",
