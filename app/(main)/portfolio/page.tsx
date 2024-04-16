@@ -10,6 +10,7 @@ const fetchPortfolioData = async () => {
   const { data } = await API.get({
     q: '[[at(document.type, "portfo")]]',
     fetchLinks: "portfo.teaser,portfo.title,portfo.preview_image",
+    orderings: "[my.portfo.project_date desc]",
   })
 
   return data
@@ -30,6 +31,7 @@ export default async function Portfolio() {
           <sup>({caseStudies.total_results_size})</sup>
         )}
       </H1>
+      {/* <pre>{JSON.stringify(caseStudies, null, 2)}</pre> */}
       <div className="grid gap-7 lg:grid-cols-2">
         {caseStudies?.results.map((caseStudy) => (
           <Card className="flex flex-col overflow-hidden" key={caseStudy.uid}>

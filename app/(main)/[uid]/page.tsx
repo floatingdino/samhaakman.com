@@ -14,9 +14,13 @@ const getPage = async (uid: string) => {
 export const revalidate = 60
 
 export async function generateMetadata({ params }): Promise<Metadata> {
-  const page = await getPage(params.uid)
-  return {
-    title: page.data.page_title.pop().text,
+  try {
+    const page = await getPage(params.uid)
+    return {
+      title: page.data.page_title.pop().text,
+    }
+  } catch (e) {
+    return null
   }
 }
 export default async function Page({ params }) {
