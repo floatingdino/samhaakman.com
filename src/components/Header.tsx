@@ -1,18 +1,25 @@
 "use client"
 
-import { FC, useState } from "react"
+import { FC, useLayoutEffect, useState } from "react"
+import { usePathname } from "next/navigation"
 import Link from "next/link"
 import clsx from "clsx"
 import { Container } from "./Container"
 import { H1 } from "./Type"
 
 const Header: FC = () => {
+  const pathname = usePathname()
   const [open, setOpen] = useState(false)
+
+  useLayoutEffect(() => {
+    setOpen(false)
+  },[pathname])
+
   return (
     <header
       className={clsx(
         "mb-5 lg:mb-10 py-5 lg:py-10 fixed top-0 w-full z-10",
-        open && "bg-bg"
+        open && "bg-bg dark:bg-bg-dark"
       )}
     >
       <Container>
@@ -42,7 +49,7 @@ const Header: FC = () => {
             <nav
               className={clsx(
                 "max-sm:fixed max-sm:top-16 left-0 bottom-0 max-sm:w-full",
-                "max-sm:bg-bg",
+                "max-sm:bg-bg max-sm:dark:bg-bg-dark",
                 "max-sm:px-2.5",
                 "max-sm:text-[1.375rem]",
                 !open &&

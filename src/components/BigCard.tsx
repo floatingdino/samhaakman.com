@@ -14,7 +14,7 @@ type BigCardProps = {
 export const BigCard: FC<BigCardProps> = ({ caseStudy, index }) => {
   return (
     <Card className="mb-10">
-      <div className="flex justify-between">
+      <div className="flex flex-wrap justify-between">
         <div className="lg:w-1/3 w-2/3 flex flex-col">
           <div className="flex flex-col justify-center grow">
             <H1 as="h2" className="mb-1">
@@ -42,7 +42,7 @@ export const BigCard: FC<BigCardProps> = ({ caseStudy, index }) => {
           </div>
         </div>
         <div
-          className="w-full lg:w-1/2 relative lg:-m-10 ml-0"
+          className="w-[calc(100%+2.5rem)] lg:w-1/2 relative -m-5 mt-0 lg:-m-10 lg:ml-0"
           style={{ aspectRatio: "5/4" }}
         >
           <Image
