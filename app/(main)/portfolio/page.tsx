@@ -16,6 +16,7 @@ const fetchPortfolioData = async () => {
   return data
 }
 
+export const runtime = "edge"
 export const revalidate = 60
 
 export const metadata = { title: "Portfolio" }
