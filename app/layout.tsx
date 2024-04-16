@@ -11,6 +11,14 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
+        url: "/images/fab.png",
+        sizes: "192x192",
+      },
+      {
+        url: "/images/fab-512.png",
+        sizes: "512x512",
+      },
+      {
         url: "/images/space.png",
         sizes: "192x192",
         media: "(prefers-color-scheme:dark)",
@@ -19,14 +27,6 @@ export const metadata: Metadata = {
         url: "/images/space-512.png",
         sizes: "512x512",
         media: "(prefers-color-scheme:dark)",
-      },
-      {
-        url: "/images/fab.png",
-        sizes: "192x192",
-      },
-      {
-        url: "/images/fab-512.png",
-        sizes: "512x512",
       },
     ],
   },
