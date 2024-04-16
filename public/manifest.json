@@ -1,0 +1,22 @@
+{
+  "name": "samhaakman.com",
+  "short_name": "sam",
+  "icons": [
+    {
+      "src": "/fab.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/fab-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#fab2d7",
+  "background_color": "#fab2d7",
+  "display": "minimal-ui",
+  "scope": "/",
+  "start_url": "/",
+  "id": "/"
+}
