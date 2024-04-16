@@ -3,7 +3,7 @@ module.exports = {
   content: ["./app/**/*.{js,ts,jsx,tsx}", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     fontFamily: {
-      sans: ["nimbus-sans", "sans-serif"],
+      sans: ["nimbus-sans", "Arial", "sans-serif"],
     },
     extend: {
       colors: {
@@ -19,11 +19,11 @@ module.exports = {
 
         remy: "#f7d1d1",
 
-        "bg": "var(--bg-color-main)",
+        bg: "var(--bg-color-main)",
         "bg-secondary": "var(--bg-color-secondary)",
         "bg-dark": "var(--bg-color-main-dark)",
         "bg-secondary-dark": "var(--bg-color-secondary-dark)",
-        "fg": "var(--fg-color)",
+        fg: "var(--fg-color)",
         "fg-dark": "var(--fg-color-dark)",
       },
       backgroundImage: {

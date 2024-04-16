@@ -1,55 +1,64 @@
+"use client"
+
 import Link from "next/link"
 import Image from "next/image"
-import { PrismicText } from "@prismicio/react"
+import { PrismicText } from "@/components/Prismic"
 import { FC } from "react"
+import { H1 } from "./Type"
+import Card from "./Card"
 
 type BigCardProps = {
-  case_study
+  caseStudy
   index: number
 }
-export const BigCard: FC<BigCardProps> = ({ case_study, index }) => {
+export const BigCard: FC<BigCardProps> = ({ caseStudy, index }) => {
   return (
-    <article className="card mb-2" key={case_study.document.uid}>
-      <div className="grid-x align-justify">
-        <div className="cell large-4 small-8 grid-y">
-          <div className="cell auto grid-y align-center">
-            <h2 className="h1 mt-0 mb-1">
-              <PrismicText field={case_study.teaser || case_study.title} />
-            </h2>
+    <Card className="mb-10">
+      <div className="flex justify-between">
+        <div className="lg:w-1/3 w-2/3 flex flex-col">
+          <div className="flex flex-col justify-center grow">
+            <H1 as="h2" className="mb-1">
+              <PrismicText
+                field={caseStudy?.data?.teaser || caseStudy?.data?.title}
+              />
+            </H1>
             <Link
-              href={`/portfolio/${case_study.document.uid}`}
+              href={`/portfolio/${caseStudy?.uid}`}
               className="arrow-link"
               passHref
             >
-              {case_study.teaser ? (
-                <PrismicText field={case_study.title} />
+              {caseStudy?.data?.teaser ? (
+                <PrismicText field={caseStudy?.data?.title} />
               ) : (
                 "Read More"
               )}
             </Link>
           </div>
           <div className="cell shrink meta mt-1">
-            <PrismicText field={case_study.studio} /> •{" "}
+            <PrismicText field={caseStudy?.data?.studio} /> •{" "}
             <time>
               {Intl.DateTimeFormat("en-GB", {
                 month: "long",
                 year: "numeric",
-              }).format(case_study.project_date)}
+              }).format(new Date(caseStudy?.data?.project_date))}
             </time>
           </div>
         </div>
-        <div className="cell large-6">
+        <div
+          className="w-full lg:w-1/2 relative lg:-m-10 ml-0"
+          style={{ aspectRatio: "5/4" }}
+        >
           <Image
-            src={case_study.preview_image}
-            alt=""
-            // alt={case_study}
-            className="large-card-image"
+            src={caseStudy?.data?.preview_image?.url}
+            alt={caseStudy?.data?.preview_image?.alt || ""}
+            className="object-cover"
             priority={index === 0}
+            fill
             // sizes="(min-width: 1300px) 650px, (min-width: 64em) 50vw, 100vw"
           />
         </div>
       </div>
-    </article>
+    </Card>
   )
 }
 export default BigCard

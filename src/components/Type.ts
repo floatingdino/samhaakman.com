@@ -7,5 +7,5 @@ export const H1 = createStyle(
 
 export const H2 = createStyle(
   "h2",
-  "lg:text-[18375rem] text-[1.375rem] font-bold leading-[1.2]"
+  "lg:text-[1.8375rem] text-[1.375rem] font-bold leading-[1.2]"
 ) // 30px / 22px

@@ -7,4 +7,7 @@ module.exports = {
     appDir: true,
     legacyBrowsers: false,
   },
+  images: {
+    domains: ["images.prismic.io"],
+  },
 }

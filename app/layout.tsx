@@ -1,8 +1,34 @@
 import "@/styles/main.css"
+import { Metadata } from "next"
 
-export const metadata = {
+export const metadata: Metadata = {
   title: {
+    default: "Sam Haakman",
     template: "%s | Sam Haakman",
+  },
+  description: "Building super fast websites that you love to see.",
+  manifest: "/manifest.json",
+  icons: {
+    icon: [
+      {
+        url: "/images/space.png",
+        sizes: "192x192",
+        media: "(prefers-color-scheme:dark)",
+      },
+      {
+        url: "/images/space-512.png",
+        sizes: "512x512",
+        media: "(prefers-color-scheme:dark)",
+      },
+      {
+        url: "/images/fab.png",
+        sizes: "192x192",
+      },
+      {
+        url: "/images/fab-512.png",
+        sizes: "512x512",
+      },
+    ],
   },
 }
 
@@ -10,22 +36,9 @@ export default function AppLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <title>Sam Haakman</title>
-        <meta
-          name="description"
-          content="Building super fast websites that you love to see."
-        />
         <link rel="preload" href="https://use.typekit.net/kiw7kqt.css" />
         <link rel="stylesheet" href="https://use.typekit.net/kiw7kqt.css" />
         <link rel="preconnect" href="https://images.prismic.io" />
-        <link rel="manifest" href="/manifest.json" />
-        <link rel="icon" href="/images/fab.png" />
-        <link
-          rel="icon"
-          href="/images/space.png"
-          media="(prefers-color-scheme:dark)"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body>{children}</body>
     </html>
