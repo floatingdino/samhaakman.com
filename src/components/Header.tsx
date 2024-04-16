@@ -29,7 +29,8 @@ const Header: FC = () => {
           <div className="cell">
             <div className="lg:hidden">
               <button
-                onClick={() => setOpen(o => !o)}
+                type="button"
+                onClick={() => setOpen((o) => !o)}
                 className="mobile-menu-opener"
                 aria-controls="main-nav"
                 aria-haspopup="true"
