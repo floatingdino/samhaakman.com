@@ -8,10 +8,10 @@ module.exports = {
     extend: {
       colors: {
         eggplant: "#4f304c",
-        bonjour: "",
+        bonjour: "#efe5ee",
 
         space: "#1d2929",
-        mystic: "",
+        mystic: "#c5d6d6",
 
         fab: "#fab2d7",
         tulip: "#98d5e5",

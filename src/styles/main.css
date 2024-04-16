@@ -9,7 +9,7 @@
 
   --bg-color-main-dark: theme("colors.space");
   --bg-image-main-dark: none;
-  --bg-color-secondary-dark: theme("colors.mystic");
+  --bg-color-secondary-dark: #253535;
 
   --fg-color: theme("colors.white");
   --fg-color-dark: theme("colors.white");
