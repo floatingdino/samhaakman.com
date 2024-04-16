@@ -1,9 +1,6 @@
 import React from "react"
 import { H1 } from "./Type"
-import { PrismicRichText, PrismicText } from "./Prismic"
-// import { RichText } from "prismic-reactjs"
-
-// import "./pullquote.scss"
+import { PrismicText } from "./Prismic"
 
 const Pullquote = ({ pullquote }) => (
   <div className="portfolio-slice my-20 px-5 py-10 lg:py-40 bg-bg-secondary dark:bg-bg-secondary-dark dark:text-fg-dark-secondary">

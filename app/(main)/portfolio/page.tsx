@@ -58,6 +58,7 @@ export default async function Portfolio() {
                 className="small-card-image"
                 width="608"
                 height="523"
+                unoptimized
               />
             </div>
           </Card>

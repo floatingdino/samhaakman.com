@@ -9,6 +9,7 @@ const BigImage = ({ image }) => (
       width="1244"
       height="700"
       style={{ height: "auto" }}
+      unoptimized
     />
   </div>
 )

@@ -50,6 +50,7 @@ export const BigCard: FC<BigCardProps> = ({ caseStudy, index }) => {
             alt={caseStudy?.data?.preview_image?.alt || ""}
             className="object-cover"
             priority={index === 0}
+            unoptimized
             fill
             // sizes="(min-width: 1300px) 650px, (min-width: 64em) 50vw, 100vw"
           />

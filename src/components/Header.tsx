@@ -13,7 +13,7 @@ const Header: FC = () => {
 
   useLayoutEffect(() => {
     setOpen(false)
-  },[pathname])
+  }, [pathname])
 
   return (
     <header

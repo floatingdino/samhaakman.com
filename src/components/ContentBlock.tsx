@@ -20,6 +20,7 @@ const ContentBlock = ({ body, originalImage, alt, ...props }) => (
           width="606"
           height="606"
           style={{ height: "auto" }}
+          unoptimized
         />
       </div>
     </div>
