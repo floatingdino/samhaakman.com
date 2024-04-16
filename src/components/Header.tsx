@@ -34,7 +34,7 @@ const Header: FC = () => {
             </Link>
           </div>
           <div className="cell">
-            <div className="lg:hidden">
+            <div className="sm:hidden">
               <button
                 type="button"
                 onClick={() => setOpen((o) => !o)}
@@ -60,7 +60,7 @@ const Header: FC = () => {
             >
               <ul
                 className={clsx(
-                  "flex flex-col lg:items-center lg:flex-row gap-2.5",
+                  "flex flex-col sm:items-center sm:flex-row gap-2.5",
                   open && "animate-rise"
                 )}
               >
