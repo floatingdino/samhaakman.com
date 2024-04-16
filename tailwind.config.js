@@ -17,7 +17,7 @@ module.exports = {
         tulip: "#98d5e5",
         moon: "#d1c7f7",
 
-        remy: "#f7d1d1",
+        remy: "#feebf5",
 
         bg: "var(--bg-color-main)",
         "bg-secondary": "var(--bg-color-secondary)",
@@ -25,6 +25,7 @@ module.exports = {
         "bg-secondary-dark": "var(--bg-color-secondary-dark)",
         fg: "var(--fg-color)",
         "fg-dark": "var(--fg-color-dark)",
+        "fg-dark-secondary": "var(--fg-color-secondary-dark)",
       },
       backgroundImage: {
         pastel: `linear-gradient(20deg, #98d5e550 0%, transparent 60%),

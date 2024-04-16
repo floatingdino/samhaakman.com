@@ -15,6 +15,10 @@ const fetchPortfolioData = async () => {
   return data
 }
 
+export const revalidate = 60
+
+export const metadata = { title: "Portfolio" }
+
 export default async function Portfolio() {
   const caseStudies = await fetchPortfolioData()
 

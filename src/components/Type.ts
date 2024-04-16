@@ -9,3 +9,8 @@ export const H2 = createStyle(
   "h2",
   "lg:text-[1.8375rem] text-[1.375rem] font-bold leading-[1.2]"
 ) // 30px / 22px
+
+export const H3 = createStyle(
+  "h3",
+  "lg:text-[1.5rem] text-[1.125rem] font-bold leading-[1.2]"
+)

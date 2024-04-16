@@ -9,8 +9,6 @@ export const API_URL =
 
 type Message = Record<string, any>
 
-type GenericHeaders = Record<string, string>
-
 async function processResponse<T = Message>(r: Response) {
   const response = r
 
@@ -38,15 +36,27 @@ async function processResponse<T = Message>(r: Response) {
  * Provides a simple mechanism for using different APIs for different environments
  */
 export const API = {
-  async get<T = Message>(predicates: Record<string,string>, options: RequestInit = {}) {
+  async get<T = Message>(
+    predicates: Record<string, string>,
+    options: RequestInit = {}
+  ) {
     const ref = await this.getRef()
-    return fetch(new URL(`/api/v2/documents/search?${new URLSearchParams({ref, ...predicates})}`, API_URL), options).then<ReturnType<typeof processResponse<T>>>(processResponse)
+    const params = new URLSearchParams({
+      ref,
+      ...predicates,
+    })
+    return fetch(
+      new URL(`/api/v2/documents/search?${params}`, API_URL),
+      options
+    ).then<ReturnType<typeof processResponse<T>>>(processResponse)
   },
   async getRef() {
-    const {data} = await fetch(new URL("/api/v2", API_URL)).then(processResponse)
-    const [{ref}] = data.refs
+    const { data } = await fetch(new URL("/api/v2", API_URL)).then(
+      processResponse
+    )
+    const [{ ref }] = data.refs
     return ref
-  }
+  },
 }
 
 export default API

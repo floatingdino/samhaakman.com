@@ -9,6 +9,7 @@ import { H1, H2 } from "./Type"
 const COMPONENTS = {
   heading1: ({ children }) => <H1>{children}</H1>,
   heading2: ({ children }) => <H2>{children}</H2>,
+  paragraph: ({ children }) => <p className="mb-10">{children}</p>,
 }
 
 const PrismicRichText: typeof OPrismicRichText = (props) => {

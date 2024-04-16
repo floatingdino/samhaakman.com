@@ -13,6 +13,7 @@
 
   --fg-color: theme("colors.white");
   --fg-color-dark: theme("colors.white");
+  --fg-color-dark-secondary: theme("colors.mystic");
 }
 
 @keyframes fade-in {
@@ -40,6 +41,7 @@
     -webkit-font-smoothing: antialiased; /* https://www.joshwcomeau.com/css/custom-css-reset/#digit-font-smoothing */
     @apply bg-bg text-fg dark:bg-bg-dark dark:text-fg-dark;
     background-image: var(--bg-image-main);
+    @apply dark:bg-none;
     @apply transition-colors duration-300;
     @apply leading-[1.4] lg:text-[1.375rem] lg:leading-[1.6];
   }
