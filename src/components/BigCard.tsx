@@ -22,21 +22,18 @@ export const BigCard: FC<BigCardProps> = ({ caseStudy, index }) => {
                 field={caseStudy?.data?.teaser || caseStudy?.data?.title}
               />
             </H1>
-            <Link
-              href={`/portfolio/${caseStudy?.uid}`}
-              className="arrow-link"
-              passHref
-            >
+            <Link href={`/portfolio/${caseStudy?.uid}`} className="underline">
               {caseStudy?.data?.teaser ? (
                 <PrismicText field={caseStudy?.data?.title} />
               ) : (
                 "Read More"
-              )}
+              )}{" "}
+              →
             </Link>
           </div>
           <div className="cell shrink meta mt-1">
             <PrismicText field={caseStudy?.data?.studio} /> •{" "}
-            <time>
+            <time className="inline-block">
               {Intl.DateTimeFormat("en-GB", {
                 month: "long",
                 year: "numeric",

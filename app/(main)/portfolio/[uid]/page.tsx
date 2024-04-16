@@ -73,7 +73,7 @@ export default async function CaseStudy({ params }) {
             </H3>
           )}
           <div>
-            <PrismicText field={cs.data.studio} />•
+            <PrismicText field={cs.data.studio} /> •{" "}
             {Intl.DateTimeFormat("en-GB", {
               month: "long",
               year: "numeric",
