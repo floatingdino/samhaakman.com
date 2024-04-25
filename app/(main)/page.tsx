@@ -41,7 +41,7 @@ export default async function HomePage() {
       <div className="lg:-mx-10">
         {articles?.map((article, index) => (
           <BigCard
-            key={article.uid}
+            key={article.case_study.uid}
             caseStudy={article.case_study}
             index={index}
           />
