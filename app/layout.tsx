@@ -7,6 +7,7 @@ export const metadata: Metadata = {
     template: "%s | Sam Haakman",
   },
   description: "Building super fast websites that you love to see.",
+  manifest: "/manifest.json",
   icons: {
     icon: [
       {
@@ -35,7 +36,11 @@ export default function AppLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link rel="preload" href="https://use.typekit.net/kiw7kqt.css" />
+        <link
+          rel="preload"
+          as="style"
+          href="https://use.typekit.net/kiw7kqt.css"
+        />
         <link rel="stylesheet" href="https://use.typekit.net/kiw7kqt.css" />
         <link rel="preconnect" href="https://images.prismic.io" />
       </head>
