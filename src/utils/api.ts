@@ -1,4 +1,5 @@
 import type { RequestInit } from "next/dist/server/web/spec-extension/request"
+import ErrorWithData from "./ErrorWithData"
 
 export const AUTH_COOKIE_PATH = "Authorization"
 export const MASQUERADE_TYPE_COOKIE_PATH = "MasqueradeType"
@@ -20,7 +21,12 @@ async function processResponse<T = Message>(r: Response) {
     console.warn("bad JSON response", e)
   }
   if (!response.ok) {
-    throw response
+    throw new ErrorWithData(
+      response?.statusText || "Unknown error",
+      typeof data === "object"
+        ? { ...(data as { [k: string]: any }), response, url: response.url }
+        : { url: response.url, response }
+    )
   }
   return {
     data,
