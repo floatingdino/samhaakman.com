@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://samhaakman.com
+
+# Sitemaps
+Sitemap: https://samhaakman.com/sitemap.xml
