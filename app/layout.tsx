@@ -7,7 +7,6 @@ export const metadata: Metadata = {
     template: "%s | Sam Haakman",
   },
   description: "Building super fast websites that you love to see.",
-  manifest: "/manifest.json",
   icons: {
     icon: [
       {

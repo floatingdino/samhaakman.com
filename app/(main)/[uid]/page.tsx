@@ -11,7 +11,6 @@ const getPage = async (uid: string) => {
   return data.results.pop()
 }
 
-export const runtime = "edge"
 export const revalidate = 60
 
 export async function generateMetadata({ params }): Promise<Metadata> {

@@ -35,7 +35,6 @@ const Slice = ({ slice_type, ...props }) => {
   }
 }
 
-export const runtime = "edge"
 export const revalidate = 60
 
 export const generateMetadata = async ({ params }): Promise<Metadata> => {
