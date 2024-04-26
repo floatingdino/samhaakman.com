@@ -4,6 +4,8 @@ import { MetadataRoute } from "next"
 const STATIC_ROUTES = ["", "/portfolio"]
 const CANONICAL_DOMAIN = "https://samhaakman.com"
 
+export const runtime = "edge"
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [{ data: pages }, { data: portfolio }] = await Promise.all([
     API.get({ q: '[[at(document.type, "page")]]' }),

@@ -24,7 +24,6 @@ export const metadata = {
   title: "Home",
 }
 
-export const runtime = "edge"
 export const revalidate = 60
 
 export default async function HomePage() {
@@ -42,13 +41,13 @@ export default async function HomePage() {
       <div className="lg:-mx-10">
         {articles?.map((article, index) => (
           <BigCard
-            key={article.uid}
+            key={article.case_study.uid}
             caseStudy={article.case_study}
             index={index}
           />
         ))}
       </div>
-      <Link href="/portfolio" className="underline">
+      <Link href="/portfolio" className="underline mouse:hover:opacity-60">
         + {totalCaseStudies - articles.length} more selected projects on my
         portfolio page
       </Link>

@@ -5,7 +5,7 @@ import { PrismicRichText, PrismicText } from "@/components/Prismic"
 import Pullquote from "@/components/Pullquote"
 import { H1, H3 } from "@/components/Type"
 import API from "@/utils/api"
-import { Metadata } from "next"
+import { Metadata, Viewport } from "next"
 import { notFound } from "next/navigation"
 
 const getCaseStudy = async (uid: string) => {
@@ -35,7 +35,6 @@ const Slice = ({ slice_type, ...props }) => {
   }
 }
 
-export const runtime = "edge"
 export const revalidate = 60
 
 export const generateMetadata = async ({ params }): Promise<Metadata> => {
@@ -44,6 +43,13 @@ export const generateMetadata = async ({ params }): Promise<Metadata> => {
   return {
     title: cs.data.title.pop().text,
   }
+}
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#1d2929" },
+    { media: "(prefers-color-scheme: light)", color: "white" },
+  ],
 }
 
 export default async function CaseStudy({ params }) {
@@ -87,7 +93,7 @@ export default async function CaseStudy({ params }) {
             href={cs.data.site_link.url}
             target="_blank"
             rel="nofollow noopener noreferrer"
-            className="underline"
+            className="underline mouse:hover:opacity-60"
           >
             {cs.data.site_link.url
               .replace("http://", "")

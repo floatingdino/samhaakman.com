@@ -5,4 +5,7 @@ module.exports = {
   images: {
     domains: ["images.prismic.io"],
   },
+  experimental: {
+    ppr: true,
+  },
 }

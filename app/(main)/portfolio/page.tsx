@@ -16,7 +16,6 @@ const fetchPortfolioData = async () => {
   return data
 }
 
-export const runtime = "edge"
 export const revalidate = 60
 
 export const metadata = { title: "Portfolio" }
@@ -44,7 +43,10 @@ export default async function Portfolio() {
               </H1>
             </div>
             <div className="mb-10">
-              <Link href={`/portfolio/${caseStudy.uid}`} className="underline">
+              <Link
+                href={`/portfolio/${caseStudy.uid}`}
+                className="underline mouse:hover:opacity-60"
+              >
                 {caseStudy.data.teaser && (
                   <PrismicText field={caseStudy.data.title} />
                 )}
