@@ -2,7 +2,7 @@
   Samhaakman.com
 </h1>
 
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+[![Run Tests](https://github.com/floatingdino/samhaakman.com/actions/workflows/test.yml/badge.svg)](https://github.com/floatingdino/samhaakman.com/actions/workflows/test.yml) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
 ## About
 
