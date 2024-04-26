@@ -5,6 +5,7 @@ const STATIC_ROUTES = ["", "/portfolio"]
 const CANONICAL_DOMAIN = "https://samhaakman.com"
 
 export const runtime = "edge"
+export const revalidate = 60
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [{ data: pages }, { data: portfolio }] = await Promise.all([
