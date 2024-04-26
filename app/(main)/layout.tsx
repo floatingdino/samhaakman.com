@@ -11,7 +11,10 @@ export default function MainLayout({ children }) {
         <Container>
           <div className="flex gap-2">
             <div className="grow flex gap-2">
-              <a className="underline" href="//github.com/floatingdino">
+              <a
+                className="underline mouse:hover:opacity-60"
+                href="//github.com/floatingdino"
+              >
                 Github
               </a>
               •
@@ -20,7 +23,10 @@ export default function MainLayout({ children }) {
               </a>
             </div>
             <div>
-              <Link className="underline" href="/privacy">
+              <Link
+                className="underline mouse:hover:opacity-60"
+                href="/privacy"
+              >
                 Privacy Policy
               </Link>
             </div>

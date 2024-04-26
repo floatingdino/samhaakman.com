@@ -12,7 +12,11 @@ const COMPONENTS = {
   heading3: ({ children }) => <H3 className="mb-[1em]">{children}</H3>,
   paragraph: ({ children }) => <p className="mb-9">{children}</p>,
   hyperlink: ({ children, node: { data } }) => (
-    <a href={data.url} className="underline" target={data.target}>
+    <a
+      href={data.url}
+      className="underline mouse:hover:opacity-60"
+      target={data.target}
+    >
       {children}
     </a>
   ),

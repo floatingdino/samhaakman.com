@@ -47,7 +47,7 @@ export default async function HomePage() {
           />
         ))}
       </div>
-      <Link href="/portfolio" className="underline">
+      <Link href="/portfolio" className="underline mouse:hover:opacity-60">
         + {totalCaseStudies - articles.length} more selected projects on my
         portfolio page
       </Link>

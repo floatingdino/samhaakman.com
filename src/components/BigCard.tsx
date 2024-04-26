@@ -13,7 +13,7 @@ type BigCardProps = {
 }
 export const BigCard: FC<BigCardProps> = ({ caseStudy, index }) => {
   return (
-    <Card className="mb-10">
+    <Card className="mb-10 overflow-hidden">
       <div className="flex flex-wrap justify-between">
         <div className="lg:w-1/3 w-2/3 flex flex-col">
           <div className="flex flex-col justify-center grow">
@@ -22,7 +22,10 @@ export const BigCard: FC<BigCardProps> = ({ caseStudy, index }) => {
                 field={caseStudy?.data?.teaser || caseStudy?.data?.title}
               />
             </H1>
-            <Link href={`/portfolio/${caseStudy?.uid}`} className="underline">
+            <Link
+              href={`/portfolio/${caseStudy?.uid}`}
+              className="underline mouse:hover:opacity-60"
+            >
               {caseStudy?.data?.teaser ? (
                 <PrismicText field={caseStudy?.data?.title} />
               ) : (

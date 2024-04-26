@@ -28,7 +28,10 @@ const Header: FC = () => {
             <Link
               href="/"
               passHref
-              className={clsx(H1.classNames, "underline")}
+              className={clsx(
+                H1.classNames,
+                "underline mouse:hover:opacity-60"
+              )}
             >
               Sam Haakman
             </Link>
@@ -68,7 +71,7 @@ const Header: FC = () => {
                   <Link
                     href="/portfolio"
                     passHref
-                    className="py-4 block underline"
+                    className="py-4 block underline mouse:hover:opacity-60"
                   >
                     Portfolio
                   </Link>
@@ -77,7 +80,11 @@ const Header: FC = () => {
                   •
                 </li>
                 <li>
-                  <Link href="/about" passHref className="py-4 block underline">
+                  <Link
+                    href="/about"
+                    passHref
+                    className="py-4 block underline mouse:hover:opacity-60"
+                  >
                     About
                   </Link>
                 </li>
