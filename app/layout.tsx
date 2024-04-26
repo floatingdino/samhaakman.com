@@ -1,5 +1,5 @@
 import "@/styles/main.css"
-import { Metadata } from "next"
+import { Metadata, Viewport } from "next"
 
 export const metadata: Metadata = {
   title: {
@@ -30,6 +30,13 @@ export const metadata: Metadata = {
       },
     ],
   },
+}
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#1d2929" },
+    { media: "(prefers-color-scheme: light)", color: "#fab2d7" },
+  ],
 }
 
 export default function AppLayout({ children }) {

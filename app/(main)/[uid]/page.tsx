@@ -2,7 +2,7 @@ import { Container } from "@/components/Container"
 import { PrismicRichText, PrismicText } from "@/components/Prismic"
 import { H1 } from "@/components/Type"
 import API from "@/utils/api"
-import { Metadata } from "next"
+import { Metadata, Viewport } from "next"
 import { notFound } from "next/navigation"
 
 const getPage = async (uid: string) => {
@@ -23,6 +23,14 @@ export async function generateMetadata({ params }): Promise<Metadata> {
     return null
   }
 }
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#1d2929" },
+    { media: "(prefers-color-scheme: light)", color: "white" },
+  ],
+}
+
 export default async function Page({ params }) {
   const page = await getPage(params.uid)
 
